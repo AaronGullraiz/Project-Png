@@ -20,7 +20,7 @@ public class QRManager : MonoBehaviour
 
     void CheckAnimalQR()
     {
-        var files = Directory.GetFiles(Application.streamingAssetsPath, "*.png");
+        var files = Directory.GetFiles(Application.streamingAssetsPath, "*.jpg");
         foreach (var file in files)
         {
             LoadAnimal(file);
@@ -46,6 +46,7 @@ public class QRManager : MonoBehaviour
                 {
                     var ob = Instantiate(obj) as GameObject;
                     ob.name = result.Text;
+                    SetNewTexture(ob, pic);
                     spawnedAnimals.Add(ob);
                 }
             }
@@ -65,5 +66,21 @@ public class QRManager : MonoBehaviour
             return tex;
         }
         return null;
+    }
+
+    private void SetNewTexture(GameObject animal, Texture2D texture)
+    {
+        foreach (var mesh in animal.GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            mesh.material.mainTexture = texture;
+        }
+    }
+
+    public void DeleteAllAnimals()
+    {
+        foreach (var animal in spawnedAnimals)
+        {
+            Destroy(animal);
+        }
     }
 }
