@@ -36,24 +36,18 @@ public class QRManager : MonoBehaviour
         {
             Debug.LogError(result.Text);
             var obj = Resources.Load("Animals/" + result.Text);
-            if (obj != null)
+            if (AnimalsSpawner.Instance.SpawnAnimal(result.Text,pic))
             {
-                if (spawnedAnimals.Count > 0 && spawnedAnimals.Find(x => x.name.Equals(result.Text)))
-                {
-                    Debug.LogError("Animal Already there: " + result.Text);
-                }
-                else
-                {
-                    var ob = Instantiate(obj) as GameObject;
-                    ob.name = result.Text;
-                    SetNewTexture(ob, pic);
-                    spawnedAnimals.Add(ob);
-                }
+                Debug.LogError("Animal Spawned: " + result.Text);
             }
             else
             {
-                Debug.LogError("Invalid QR Code: "+result.Text);
+                Debug.LogError("Animal Not Spawned: "+result.Text);
             }
+        }
+        else
+        {
+            Debug.LogError("Error loading pic");
         }
     }
 
@@ -82,5 +76,6 @@ public class QRManager : MonoBehaviour
         {
             Destroy(animal);
         }
+        spawnedAnimals.Clear();
     }
 }

@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public QRManager qrManager;
+    public Text timerTxt;
+
+    public void UpdateTime(string time)
+    {
+        timerTxt.text = time;
+    }
 
     public void QuitApplication()
     {
@@ -20,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     public void DeleteAllFiles()
     {
+        AnimalsSpawner.Instance.DeleteAll();
+
         var files = Directory.GetFiles(Application.streamingAssetsPath, "*.jpg");
         foreach (var file in files)
         {

@@ -1,12 +1,17 @@
 fileFormatVersion: 2
 guid: 0cccb29c52f91ca4b9a4e72c01b14cf2
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21100
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Cocoon
+    second: {fileID: 2100000, guid: 5ec084299a2a60f4fbb4bf0ba9c9422d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
