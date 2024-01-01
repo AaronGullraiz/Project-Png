@@ -14,14 +14,14 @@ public class TimeManager : MonoBehaviour
     {
         get
         {
-            return time < 1200 && time > 240;
+            return time < 1020 && time > 360;
         }
     }
 
     IEnumerator Start()
     {
         Instance = new TimeManager();
-
+        time = 300;
         while (true)
         {
             time += 15;

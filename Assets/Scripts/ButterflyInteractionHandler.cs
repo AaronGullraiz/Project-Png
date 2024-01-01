@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class ButterflyInteractionHandler : AnimalInteractionHandler
 {
     public SkinnedMeshRenderer[] meshes;
     private ITweenMagic tween;
+
+    public ParticleSystem particle;
 
     private void Awake()
     {
@@ -16,8 +19,10 @@ public class ButterflyInteractionHandler : AnimalInteractionHandler
 
     private void OnButterflyClicked()
     {
+        particle.Play();
         if (TimeManager.Instance.IsDay)
         {
+            AudioManager.Instance.PlaySound("Day");
             if (transform.localScale.x == 1)
                 tween.PlayForwardScale();
             else
@@ -25,6 +30,7 @@ public class ButterflyInteractionHandler : AnimalInteractionHandler
         }
         else
         {
+            AudioManager.Instance.PlaySound("Night");
             foreach (var mesh in meshes)
             {
                 mesh.GetComponent<Animator>().SetBool("Emit", !mesh.GetComponent<Animator>().GetBool("Emit"));
@@ -38,6 +44,13 @@ public class ButterflyInteractionHandler : AnimalInteractionHandler
         {
             Debug.LogWarning("Setting texture: "+mesh.gameObject.name);
             mesh.material.mainTexture = texture;
+            mesh.material.SetFloat("EmissionStrength", 1+ PrefsHandler.butterflyIlluminationStrength / 10.0f);
         }
+    }
+
+    public void OnButterflyOutComplete()
+    {
+        var sc = gameObject.AddComponent<SchoolChild>();
+        sc._spawner = SchoolController.Instance;
     }
 }

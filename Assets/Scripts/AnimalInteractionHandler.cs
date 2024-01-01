@@ -12,7 +12,7 @@ static extern bool SetCursorPos(int X, int Y);
 
 public UnityEvent clickEvent;
 
-    private void OnMouseUp()
+    private void OnMouseEnter()
     {
         clickEvent.Invoke();
 

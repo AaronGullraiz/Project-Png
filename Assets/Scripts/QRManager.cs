@@ -2,6 +2,7 @@ using CielaSpike.Unity.Barcode;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using UnityEngine;
 
 public class QRManager : MonoBehaviour
@@ -14,8 +15,8 @@ public class QRManager : MonoBehaviour
     {
         _decoder = Barcode.GetDecoder();
         spawnedAnimals = new List<GameObject>();
-
-        InvokeRepeating(nameof(CheckAnimalQR),2,2);
+        CheckAnimalQR();
+        //InvokeRepeating(nameof(CheckAnimalQR),2,2);
     }
 
     void CheckAnimalQR()

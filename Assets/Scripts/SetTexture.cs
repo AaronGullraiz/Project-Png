@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class SetTexture : MonoBehaviour
 {
-    public AnimalInteractionHandler animalBody;
+    public AnimalInteractionHandler[] animalBodies;
 
     public void SetTextureOnAnimal(Texture2D texture)
     {
-        animalBody.SetTexture(texture);
+        foreach (var animal in animalBodies)
+        {
+            animal.SetTexture(texture);
+        }
     }
 }

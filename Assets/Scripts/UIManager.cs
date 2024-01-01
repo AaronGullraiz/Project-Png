@@ -25,6 +25,11 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void OpenMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void DeleteAllFiles()
     {
         AnimalsSpawner.Instance.DeleteAll();
@@ -36,5 +41,12 @@ public class UIManager : MonoBehaviour
         }
 
         qrManager.DeleteAllAnimals();
+    }
+
+    public SchoolController school;
+    public void SpawnFish(GameObject fish)
+    {
+        //school.Spawn(fish, transform.position, fish.transform.rotation);
+        school.gameObject.SetActive(true);
     }
 }
