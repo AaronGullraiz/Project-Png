@@ -8,6 +8,8 @@ public class TimeManager : MonoBehaviour
 
     private static int time = 300;
 
+    public SunHandler sun;
+
     public static TimeManager Instance;
 
     public bool IsDay

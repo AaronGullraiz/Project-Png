@@ -20,7 +20,8 @@ public class ButterflyInteractionHandler : AnimalInteractionHandler
     private void OnButterflyClicked()
     {
         particle.Play();
-        if (TimeManager.Instance.IsDay)
+        //if (TimeManager.Instance.IsDay)
+        if (SunHandler.Instance.isDay)
         {
             AudioManager.Instance.PlaySound("Day");
             if (transform.localScale.x == 1)

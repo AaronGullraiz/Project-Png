@@ -8,7 +8,9 @@ public class MenuManager : MonoBehaviour
 {
     [Header("Settings")]
     public GameObject settingsPopup;
-    public Slider illuminationSlider;
+    public Slider illuminationSlider,daySlider,nightSlider;
+    public Toggle dayOnly, dayNight;
+    public GameObject dayNightScrollers;
 
     [Header("Loading")]
     public GameObject loadingScreen;
@@ -16,6 +18,9 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         illuminationSlider.value = PrefsHandler.butterflyIlluminationStrength;
+        SetToggles();
+        daySlider.value = PrefsHandler.dayDuration;
+        nightSlider.value = PrefsHandler.nightDuration;
     }
 
     public void OpenSettings()
@@ -26,11 +31,22 @@ public class MenuManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         loadingScreen.SetActive(true);
-        if(illuminationSlider.value != PrefsHandler.butterflyIlluminationStrength)
-        {
-            PrefsHandler.butterflyIlluminationStrength = Mathf.RoundToInt(illuminationSlider.value);
-        }
+        PrefsHandler.butterflyIlluminationStrength = Mathf.RoundToInt(illuminationSlider.value);
+        PrefsHandler.dayDuration = Mathf.RoundToInt(daySlider.value);
+        PrefsHandler.nightDuration = Mathf.RoundToInt(nightSlider.value);
 
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ToggleClicked(bool isDayNight)
+    {
+        Debug.LogError("Toggle:"+isDayNight);
+        PrefsHandler.dayNightSettings = isDayNight;
+        SetToggles();
+    }
+
+    private void SetToggles()
+    {
+        dayNightScrollers.SetActive(PrefsHandler.dayNightSettings);
     }
 }
