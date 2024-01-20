@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class QRManager : MonoBehaviour
 {
+    public string folderName;
+
     private IBarcodeDecoder _decoder;
 
     private List<GameObject> spawnedAnimals;
@@ -36,7 +38,7 @@ public class QRManager : MonoBehaviour
         if (result.Success)
         {
             Debug.LogError(result.Text);
-            var obj = Resources.Load("Animals/" + result.Text);
+            var obj = Resources.Load($"{folderName}/{result.Text}");
             if (AnimalsSpawner.Instance.SpawnAnimal(result.Text,pic))
             {
                 Debug.LogError("Animal Spawned: " + result.Text);

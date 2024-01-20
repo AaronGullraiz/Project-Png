@@ -31,7 +31,6 @@ public class SmoothCameraOrbit : MonoBehaviour
     public int zoomRate = 40;
     public float panSpeed = 0.3f;
     public float zoomDampening = 5.0f;
-	public float autoRotate = 1;
 
     private float xDeg = 0.0f;
     private float yDeg = 0.0f;
@@ -41,8 +40,8 @@ public class SmoothCameraOrbit : MonoBehaviour
     private Quaternion desiredRotation;
     private Quaternion rotation;
     private Vector3 position;
-	private float idleTimer = 0.0f;
-	private float idleSmooth = 0.0f;
+
+
 	
     void Start() { Init(); }
     void OnEnable() { Init(); }
@@ -94,29 +93,10 @@ public class SmoothCameraOrbit : MonoBehaviour
             currentRotation = transform.rotation;
            	rotation = Quaternion.Lerp(currentRotation, desiredRotation, Time.deltaTime * zoomDampening);
         	transform.rotation = rotation;
-			///////// Reset idle timers
-			idleTimer=0;
-            idleSmooth=0;
+
+
+
        
-		}else{
-		    //////// Smooth idle rotation
-			idleTimer+=Time.deltaTime;
-			if(idleTimer > autoRotate && autoRotate > 0){
-				idleSmooth+=(Time.deltaTime+idleSmooth)*0.005f;
-				idleSmooth = Mathf.Clamp(idleSmooth, 0, 1);
-				xDeg += xSpeed * 0.001f * idleSmooth;
-			}
-			///////// Smooth idle rotation ends
-			
-			///////// Smooth exit
-            //Clamp the vertical axis for the orbit
-            yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
-            // set camera rotation
-            desiredRotation = Quaternion.Euler(yDeg, xDeg, 0);
-            currentRotation = transform.rotation;
-           	rotation = Quaternion.Lerp(currentRotation, desiredRotation, Time.deltaTime * zoomDampening*2);
-        	transform.rotation = rotation;
-			///////// Smooth exit ends
 		}
 		
 			///////// Middle click disabled

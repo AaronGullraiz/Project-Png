@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 public class SceneLoader
 {
     private static string mainmenuScenePath = "Assets/Scenes/Menu.unity";
-    private static string ButterflyGameplayScenePath = "Assets/Scenes/Insect.unity";
+    private static string GameplayScenePath = "Assets/Scenes/";
 
     [MenuItem("SceneHandler/Open Splash Scene _F1")]
     static void OpenMainMenuScene()
@@ -15,12 +15,21 @@ public class SceneLoader
         }
     }
 
-    [MenuItem("SceneHandler/Open ForestGameplay Scene _F3")]
-    static void OpenForestGameplayScene()
+    [MenuItem("SceneHandler/Open Butterfly Gameplay Scene _F3")]
+    static void OpenButterflyGameplayScene()
     {
         if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
         {
-            EditorSceneManager.OpenScene(ButterflyGameplayScenePath);
+            EditorSceneManager.OpenScene(GameplayScenePath+ "Insect.unity");
+        }
+    }
+
+    [MenuItem("SceneHandler/Open Safari Gameplay Scene _F4")]
+    static void OpenSafariGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Safari.unity");
         }
     }
 

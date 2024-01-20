@@ -6,9 +6,11 @@ public class AnimalsSpawner : MonoBehaviour
 {
     public static AnimalsSpawner Instance;
 
+    public string folderName;
+
     public GameObject[] animals;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
     }
@@ -19,7 +21,7 @@ public class AnimalsSpawner : MonoBehaviour
         {
             if(animal.name.Equals(name) && animal.transform.childCount==0)
             {
-                var an = Instantiate(Resources.Load("Animals/" + name), animal.transform) as GameObject;
+                var an = Instantiate(Resources.Load($"{folderName}/{name}"), animal.transform) as GameObject;
                 an.GetComponent<SetTexture>().SetTextureOnAnimal(texture);
                 return true;
             }

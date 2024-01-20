@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Insect.unity
     guid: 6a024c0352017074ba1b51f64d06eb52
+  - enabled: 1
+    path: Assets/Scenes/Safari.unity
+    guid: 50d1ce7eb9a6a394dacfd22c3aca51a7
   m_configObjects: {}
