@@ -61,4 +61,11 @@ public class AnimalController : MonoBehaviour
         agent.isStopped = false;
         agent.velocity = velocity;
     }
+
+    public void SetWalkSpeed(int speed)
+    {
+        agent.speed = speed;
+        agent.angularSpeed = Mathf.Clamp(speed * speed,5,100);
+        anim.speed = 0.7f+(speed * 0.3f);
+    }
 }

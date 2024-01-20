@@ -33,6 +33,15 @@ public class SceneLoader
         }
     }
 
+    [MenuItem("SceneHandler/Open Insects Gameplay Scene _F6")]
+    static void OpenPondGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Pond.unity");
+        }
+    }
+
     [MenuItem("SceneHandler/PlayStop _F5")]
     private static void PlayStopButton()
     {
@@ -49,7 +58,7 @@ public class SceneLoader
     }
 
 
-    [MenuItem("SceneHandler/Pause _F6")]
+    [MenuItem("SceneHandler/Pause %F5")]
     private static void PauseButton()
     {
         if (EditorApplication.isPlaying)

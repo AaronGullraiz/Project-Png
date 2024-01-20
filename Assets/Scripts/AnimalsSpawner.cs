@@ -10,6 +10,8 @@ public class AnimalsSpawner : MonoBehaviour
 
     public GameObject[] animals;
 
+    private List<GameObject> spawnedAnimals;
+
     private void Awake()
     {
         Instance = this;
@@ -17,12 +19,15 @@ public class AnimalsSpawner : MonoBehaviour
 
     public bool SpawnAnimal(string name, Texture2D texture)
     {
+        spawnedAnimals = new List<GameObject>();
+
         foreach (var animal in animals)
         {
             if(animal.name.Equals(name) && animal.transform.childCount==0)
             {
                 var an = Instantiate(Resources.Load($"{folderName}/{name}"), animal.transform) as GameObject;
                 an.GetComponent<SetTexture>().SetTextureOnAnimal(texture);
+                spawnedAnimals.Add(an);
                 return true;
             }
         }
@@ -40,6 +45,14 @@ public class AnimalsSpawner : MonoBehaviour
                     Destroy(animal.transform.GetChild(i).gameObject);
                 }
             }
+        }
+    }
+
+    public void SetAnimalsSpeed(int amount)
+    {
+        foreach (var animal in spawnedAnimals)
+        {
+            animal.GetComponent<AnimalController>().SetWalkSpeed(amount);
         }
     }
 }

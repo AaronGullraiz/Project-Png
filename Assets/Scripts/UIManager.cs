@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     public QRManager qrManager;
     public Text timerTxt;
 
+    [Header("Gameplay Walk speed Settings")]
+    public Slider walkSpeedSlider;
+
     public void UpdateTime(string time)
     {
         timerTxt.text = time;
@@ -48,5 +51,10 @@ public class UIManager : MonoBehaviour
     {
         //school.Spawn(fish, transform.position, fish.transform.rotation);
         school.gameObject.SetActive(true);
+    }
+
+    public void OnAnimalsSettingsClosed()
+    {
+        AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
     }
 }
