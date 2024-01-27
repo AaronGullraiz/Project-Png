@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400016, guid: fe40af1a55a907940b1c0873e4126105, type: 3}
+  m_Motion: {fileID: 7400018, guid: cb894dff9161f8a4f9a964f1114c919d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -48,7 +48,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400006, guid: fe40af1a55a907940b1c0873e4126105, type: 3}
+  m_Motion: {fileID: 7400010, guid: cb894dff9161f8a4f9a964f1114c919d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -85,7 +85,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: goat
+  m_Name: Buffalo
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Walk
@@ -246,7 +246,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walk
-  m_Speed: 1
+  m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 548021781026768575}
@@ -260,7 +260,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400004, guid: fe40af1a55a907940b1c0873e4126105, type: 3}
+  m_Motion: {fileID: 7400008, guid: cb894dff9161f8a4f9a964f1114c919d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -287,7 +287,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400002, guid: fe40af1a55a907940b1c0873e4126105, type: 3}
+  m_Motion: {fileID: 7400006, guid: cb894dff9161f8a4f9a964f1114c919d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -314,7 +314,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fe40af1a55a907940b1c0873e4126105, type: 3}
+  m_Motion: {fileID: 7400000, guid: cb894dff9161f8a4f9a964f1114c919d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

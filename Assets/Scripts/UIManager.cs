@@ -55,6 +55,12 @@ public class UIManager : MonoBehaviour
 
     public void OnAnimalsSettingsClosed()
     {
-        AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
+        Time.timeScale = 1 + ((walkSpeedSlider.value * walkSpeedSlider.value) * 0.1f);
+        //AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
     }
 }

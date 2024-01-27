@@ -14,12 +14,12 @@ public class AnimalsSpawner : MonoBehaviour
 
     private void Awake()
     {
+        spawnedAnimals = new List<GameObject>();
         Instance = this;
     }
 
     public bool SpawnAnimal(string name, Texture2D texture)
     {
-        spawnedAnimals = new List<GameObject>();
 
         foreach (var animal in animals)
         {

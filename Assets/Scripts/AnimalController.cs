@@ -19,8 +19,12 @@ public class AnimalController : MonoBehaviour
 
     private bool isTouched;
 
+    private float baseWalkSpeed;
+
     void Start()
     {
+        baseWalkSpeed = agent.speed;
+
         waypoints = WaypointsHolder.Instance.GetWaypoints(gameObject.name);
 
         agent.SetDestination(waypoints[waypointIndex].position);
@@ -64,8 +68,8 @@ public class AnimalController : MonoBehaviour
 
     public void SetWalkSpeed(int speed)
     {
-        agent.speed = speed;
-        agent.angularSpeed = Mathf.Clamp(speed * speed,5,100);
-        anim.speed = 0.7f+(speed * 0.3f);
+        agent.speed = baseWalkSpeed * speed;
+        agent.angularSpeed = Mathf.Clamp(speed * speed * speed,5,200);
+        anim.speed = speed/2.0f;
     }
 }
