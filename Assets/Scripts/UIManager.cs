@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     {
         AnimalsSpawner.Instance.DeleteAll();
 
-        var files = Directory.GetFiles(Application.streamingAssetsPath, "*.jpg");
+        var files = Directory.GetFiles(Application.streamingAssetsPath+"/"+qrManager.folderName, "*.jpg");
         foreach (var file in files)
         {
             File.Delete(file);

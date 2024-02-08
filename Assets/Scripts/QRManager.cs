@@ -23,7 +23,7 @@ public class QRManager : MonoBehaviour
 
     void CheckAnimalQR()
     {
-        var files = Directory.GetFiles(Application.streamingAssetsPath, "*.jpg");
+        var files = Directory.GetFiles(Application.streamingAssetsPath+"/"+folderName, "*.jpg");
         foreach (var file in files)
         {
             LoadAnimal(file);

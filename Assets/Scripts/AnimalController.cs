@@ -4,9 +4,7 @@ using UnityEngine.Events;
 
 public class AnimalController : MonoBehaviour
 {
-    [SerializeField]
     private NavMeshAgent agent;
-    [SerializeField]
     private Animator anim;
 
     [SerializeField]
@@ -23,6 +21,9 @@ public class AnimalController : MonoBehaviour
 
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+
         baseWalkSpeed = agent.speed;
 
         waypoints = WaypointsHolder.Instance.GetWaypoints(gameObject.name);

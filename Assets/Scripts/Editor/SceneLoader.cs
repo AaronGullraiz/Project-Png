@@ -20,7 +20,7 @@ public class SceneLoader
     {
         if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
         {
-            EditorSceneManager.OpenScene(GameplayScenePath+ "Insect.unity");
+            EditorSceneManager.OpenScene(GameplayScenePath+ "Butterfly.unity");
         }
     }
 
@@ -38,7 +38,16 @@ public class SceneLoader
     {
         if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
         {
-            EditorSceneManager.OpenScene(GameplayScenePath + "Pond.unity");
+            EditorSceneManager.OpenScene(GameplayScenePath + "Insects.unity");
+        }
+    }
+
+    [MenuItem("SceneHandler/Open Reptile Gameplay Scene _F8")]
+    static void OpenReptileGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Reptile.unity");
         }
     }
 

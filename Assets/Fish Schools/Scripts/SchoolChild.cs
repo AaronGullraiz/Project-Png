@@ -29,9 +29,17 @@ public class SchoolChild:MonoBehaviour{
 	
 	#if UNITY_EDITOR
 	public static bool _sWarning;
-	#endif
-	
-	public void Start(){
+#endif
+
+    private void Awake()
+    {
+        if (_spawner == null)
+        {
+			_spawner = FindObjectOfType<SchoolController>();
+        }
+    }
+
+    public void Start(){
 		//Check if there is a controller attached
 		if(_cacheTransform == null) _cacheTransform = transform;
 		if(_spawner != null){
