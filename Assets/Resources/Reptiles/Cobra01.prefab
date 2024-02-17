@@ -9848,7 +9848,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: 4b8082a793fbfae4f866548a9bad3d84, type: 3}
+  m_Mesh: {fileID: 8947028164876225992, guid: 796b19bf728d2cc428a899d91d0b6034, type: 3}
   m_Bones:
   - {fileID: 6316870667638945115}
   - {fileID: 6316870666510430384}
@@ -10430,7 +10430,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 2656441701527110219, guid: 9e3b0f246b0c3e940bf7cf07373db226, type: 3}
+  m_Mesh: {fileID: 2656441701527110219, guid: 796b19bf728d2cc428a899d91d0b6034, type: 3}
   m_Bones:
   - {fileID: 6316870666586846759}
   - {fileID: 6316870667126519033}
@@ -10824,7 +10824,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.2
-  m_BaseOffset: -0.2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &525975316811463060
@@ -10904,7 +10904,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: aaf3a4aa67b4bc44a8fa814bfd86a8eb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9cd449265159fdd468e4b8df82c9d57b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -11203,7 +11203,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 4b8082a793fbfae4f866548a9bad3d84, type: 3}
+  m_Mesh: {fileID: 7030793139836000390, guid: 796b19bf728d2cc428a899d91d0b6034, type: 3}
   m_Bones:
   - {fileID: 6316870667638945115}
   - {fileID: 6316870666510430384}

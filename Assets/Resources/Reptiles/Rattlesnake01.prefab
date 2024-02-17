@@ -19429,7 +19429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5594469540979839659
 Transform:
   m_ObjectHideFlags: 0
@@ -19489,7 +19489,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 85ae56e03394a714bbad7ed35ae17dba, type: 3}
+  m_Mesh: {fileID: 5094056516296879017, guid: 4b345b782cfc85949b650eb00cda3420, type: 3}
   m_Bones:
   - {fileID: 5594469541903807736}
   - {fileID: 5594469540523226035}
@@ -19619,7 +19619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5594469541042603175
 Transform:
   m_ObjectHideFlags: 0
@@ -19679,7 +19679,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: 85ae56e03394a714bbad7ed35ae17dba, type: 3}
+  m_Mesh: {fileID: 7873958969219667411, guid: 4b345b782cfc85949b650eb00cda3420, type: 3}
   m_Bones:
   - {fileID: 5594469541903807736}
   - {fileID: 5594469540523226035}
@@ -20753,7 +20753,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.2
-  m_BaseOffset: -0.2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &523039485749084447

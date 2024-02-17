@@ -10536,7 +10536,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300002, guid: c4c6a264fd1b83445b032699f760b4da, type: 3}
+  m_Mesh: {fileID: 2521071930306465575, guid: 7f1923153ec925146b28ead23017d0d5, type: 3}
   m_Bones:
   - {fileID: 4487826944892655309}
   - {fileID: 4487826945736312820}
@@ -11125,7 +11125,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.2
-  m_BaseOffset: -0.2
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8346886508499764180

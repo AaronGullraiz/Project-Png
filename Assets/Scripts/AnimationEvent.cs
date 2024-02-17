@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimationEvent : MonoBehaviour
 {
     public ButterflyInteractionHandler butterfly;
 
-    public void OnButterflyOutComplete()
+    public UnityEvent animationEvent;
+
+    public void RestartWalk()
     {
-        butterfly.OnButterflyOutComplete();
+        if(butterfly!=null)
+            butterfly.OnButterflyOutComplete();
+
+        animationEvent.Invoke();
     }
 }

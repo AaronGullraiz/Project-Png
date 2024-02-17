@@ -24,7 +24,7 @@ public class SceneLoader
         }
     }
 
-    [MenuItem("SceneHandler/Open Safari Gameplay Scene _F4")]
+    [MenuItem("SceneHandler/Open Safari Gameplay Scene #F3")]
     static void OpenSafariGameplayScene()
     {
         if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
@@ -33,7 +33,7 @@ public class SceneLoader
         }
     }
 
-    [MenuItem("SceneHandler/Open Insects Gameplay Scene _F6")]
+    [MenuItem("SceneHandler/Open Insects Gameplay Scene %F3")]
     static void OpenPondGameplayScene()
     {
         if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
@@ -42,12 +42,30 @@ public class SceneLoader
         }
     }
 
-    [MenuItem("SceneHandler/Open Reptile Gameplay Scene _F8")]
+    [MenuItem("SceneHandler/Open Reptile Gameplay Scene _F4")]
     static void OpenReptileGameplayScene()
     {
         if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
         {
             EditorSceneManager.OpenScene(GameplayScenePath + "Reptile.unity");
+        }
+    }
+
+    [MenuItem("SceneHandler/Open Arctic Gameplay Scene #F4")]
+    static void OpenArcticGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Arctic.unity");
+        }
+    }
+
+    [MenuItem("SceneHandler/Open Aquarium Gameplay Scene %F4")]
+    static void OpenAquariumGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Aquarium.unity");
         }
     }
 
