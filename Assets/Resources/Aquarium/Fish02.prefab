@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6652669312241229756}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 523692981828497216}
   - component: {fileID: 2227401276774699772}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 01_fish-french-angel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1520656552183193478}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: neak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 7302685684522245220}
   - component: {fileID: 2225182455644546356}
   - component: {fileID: 4805243762658080755}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Fish02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 4598956375553652549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 523692981828497216}
   - {fileID: 4303075010295664671}
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4303075010295664671}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6849013419539988877}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695876664000177529}
   - component: {fileID: 5814602395705084274}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320996702848380397}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: neak_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3666557852904824680}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: general
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3912245792040567788}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2574679042572225005}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

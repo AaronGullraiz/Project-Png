@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4972773489199913254}
   - component: {fileID: 3512885920297224927}
   - component: {fileID: 3792553110858465774}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Fish04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1478537960025175442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 2981674574822445214}
   - {fileID: 1216398414319129288}
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4489069676678110545}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: neak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8576282471851122027}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2981674574822445214}
   - component: {fileID: 637455263170528327}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 06_butterfly-wedge-stripe-auriga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2097836111195259195}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643184577979255610}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852156976735198655}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: general
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1216398414319129288}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8384155970947711834}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4108139953079381818}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: neak_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4386192482246158254}
   - component: {fileID: 8928256619997596581}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: tail_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
