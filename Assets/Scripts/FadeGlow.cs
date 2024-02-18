@@ -21,7 +21,7 @@ public class FadeGlow : MonoBehaviour
 
     IEnumerator Glow()
     {
-        Color c = Color.yellow;
+        Color c = GetRandomColor();
         while (c!=Color.black)
         {
             c.r = Mathf.MoveTowards(c.r, 0, Time.deltaTime * speed);
@@ -50,5 +50,34 @@ public class FadeGlow : MonoBehaviour
             mesh.material.SetColor("_EmissionColor", c);
             //mesh.material.color = c;
         }
+    }
+
+    private Color GetRandomColor()
+    {
+        var r = Random.Range(0, 6);
+        switch (r)
+        {
+            case 0:
+                {
+                    return Color.red;
+                }
+            case 1:
+                {
+                    return Color.yellow;
+                }
+            case 2:
+                {
+                    return Color.black;
+                }
+            case 3:
+                {
+                    return Color.cyan;
+                }
+            case 4:
+                {
+                    return Color.magenta;
+                }
+        }
+        return new Color(0.5f, 0, 0.5f);
     }
 }

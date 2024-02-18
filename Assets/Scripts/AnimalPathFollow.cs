@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class AnimalPathFollow : MonoBehaviour
 {
     public float speed, rotationSpeed;
+    [Range(1,10)]
+    public int touchAnimationsCount = 1;
 
     public UnityEvent OnTouch;
 
@@ -14,6 +16,11 @@ public class AnimalPathFollow : MonoBehaviour
     private int currentWayPoint = 0;
 
     private bool isInTouch = false;
+
+    private int touchAnim = 1;
+
+    [SerializeField]
+    private Animator anim;
 
     void Start()
     {
@@ -54,5 +61,11 @@ public class AnimalPathFollow : MonoBehaviour
     public void RestartWalk()
     {
         isInTouch = false;
+    }
+
+    public void PlayTouchAnimation(string animName)
+    {
+        anim.Play(animName + touchAnim);
+        touchAnim = ((touchAnim + 1) % touchAnimationsCount);
     }
 }
