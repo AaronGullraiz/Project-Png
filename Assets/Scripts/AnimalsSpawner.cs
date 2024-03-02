@@ -26,6 +26,7 @@ public class AnimalsSpawner : MonoBehaviour
             if(animal.name.Equals(name) && animal.transform.childCount==0)
             {
                 var an = Instantiate(Resources.Load($"{folderName}/{name}"), animal.transform) as GameObject;
+                an.name = name;
                 an.GetComponent<SetTexture>().SetTextureOnAnimal(texture);
                 spawnedAnimals.Add(an);
                 return true;

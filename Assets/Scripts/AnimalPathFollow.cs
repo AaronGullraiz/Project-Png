@@ -11,9 +11,10 @@ public class AnimalPathFollow : MonoBehaviour
 
     public UnityEvent OnTouch;
 
-    private Transform[] waypoints;
+    [SerializeField]
+    protected Transform[] waypoints;
 
-    private int currentWayPoint = 0;
+    protected int currentWayPoint = 0;
 
     private bool isInTouch = false;
 
@@ -27,7 +28,7 @@ public class AnimalPathFollow : MonoBehaviour
         waypoints = WaypointsHolder.Instance.GetWaypoints(gameObject.name);
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (isInTouch)
         {
@@ -36,17 +37,22 @@ public class AnimalPathFollow : MonoBehaviour
 
         if (Vector3.Distance(transform.position, waypoints[currentWayPoint].position) < 0.1f)
         {
-            currentWayPoint=(currentWayPoint+1)%waypoints.Length;
+            ReachedWaypoint(waypoints[currentWayPoint]);
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWayPoint].position, Time.deltaTime * speed);
-            transform.forward = Vector3.MoveTowards(transform.forward, waypoints[currentWayPoint].position - transform.position, Time.deltaTime * rotationSpeed);
-
-            var rot = transform.localEulerAngles;
-            rot.x = rot.z = 0;
-            transform.localEulerAngles = rot;
+            Move();
         }
+    }
+
+    private void Move()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWayPoint].position, Time.deltaTime * speed);
+        transform.forward = Vector3.MoveTowards(transform.forward, waypoints[currentWayPoint].position - transform.position, Time.deltaTime * rotationSpeed);
+
+        var rot = transform.localEulerAngles;
+        rot.x = rot.z = 0;
+        transform.localEulerAngles = rot;
     }
 
     public void OnAnimalTouch()
@@ -67,5 +73,10 @@ public class AnimalPathFollow : MonoBehaviour
     {
         anim.Play(animName + touchAnim);
         touchAnim = ((touchAnim + 1) % touchAnimationsCount);
+    }
+
+    protected virtual void ReachedWaypoint(Transform waypoint)
+    {
+        currentWayPoint = (currentWayPoint + 1) % waypoints.Length;
     }
 }
