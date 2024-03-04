@@ -69,6 +69,15 @@ public class SceneLoader
         }
     }
 
+    [MenuItem("SceneHandler/Open Farm Gameplay Scene _F6")]
+    static void OpenFarmGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Farm.unity");
+        }
+    }
+
     [MenuItem("SceneHandler/PlayStop _F5")]
     private static void PlayStopButton()
     {
@@ -84,8 +93,7 @@ public class SceneLoader
 
     }
 
-
-    [MenuItem("SceneHandler/Pause %F5")]
+   [MenuItem("SceneHandler/Pause %F5")]
     private static void PauseButton()
     {
         if (EditorApplication.isPlaying)

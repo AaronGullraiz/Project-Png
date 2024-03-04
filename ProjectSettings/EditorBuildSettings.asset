@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Aquarium.unity
     guid: 77f0ab21a5fff9941ab194b02f58335a
+  - enabled: 1
+    path: Assets/Scenes/Farm.unity
+    guid: c06fdfe84e3a1ff40bff14a6582ab5f5
   m_configObjects: {}

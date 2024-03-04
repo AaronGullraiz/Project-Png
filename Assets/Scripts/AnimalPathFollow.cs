@@ -23,6 +23,8 @@ public class AnimalPathFollow : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    private Coroutine routine;
+
     void Start()
     {
         waypoints = WaypointsHolder.Instance.GetWaypoints(gameObject.name);
@@ -77,6 +79,30 @@ public class AnimalPathFollow : MonoBehaviour
 
     protected virtual void ReachedWaypoint(Transform waypoint)
     {
+        var wp = waypoint.GetComponent<Waypoint>();
+        if (wp != null)
+        {
+            if (!string.IsNullOrEmpty(wp.animationName))
+                GetComponent<Animator>().Play(wp.animationName);
+            if (wp.speed > 0)
+            {
+                speed = wp.speed;
+            }
+            if (wp.delayBeforeNextWaypoint > 0 && routine == null)
+            {
+                routine = StartCoroutine(WaitForNextWaypoint(wp.delayBeforeNextWaypoint));
+                return;
+            }
+        }
+        if(routine == null)
+            currentWayPoint = (currentWayPoint + 1) % waypoints.Length;
+    }
+
+    IEnumerator WaitForNextWaypoint(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         currentWayPoint = (currentWayPoint + 1) % waypoints.Length;
+        GetComponent<Animator>().SetTrigger("Walk");
+        routine = null;
     }
 }

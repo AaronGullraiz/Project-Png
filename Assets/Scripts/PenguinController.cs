@@ -26,13 +26,7 @@ public class PenguinController : AnimalPathFollow
             {
                 bubbles.SetActive(false);
             }
-
-            if (!string.IsNullOrEmpty(wp.animationName))
-                GetComponent<Animator>().Play(wp.animationName);
-            if (wp.speed > 0)
-            {
-                speed = wp.speed;
-            }
+            
             if (isTouch)
             {
                 isTouch = !wp.isTouchEnd;
@@ -49,8 +43,6 @@ public class PenguinController : AnimalPathFollow
                     currentWayPoint = 0;
                 }
             }
-            base.ReachedWaypoint(waypoint);
-            return;
         }
         base.ReachedWaypoint(waypoint);
     }

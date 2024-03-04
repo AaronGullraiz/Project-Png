@@ -9,7 +9,7 @@ public class Waypoint : MonoBehaviour
 
     public bool isTouchEnd;
 
-    public float speed;
+    public float speed, delayBeforeNextWaypoint = 0;
 
     public UnityEvent eventOnReach;
 }

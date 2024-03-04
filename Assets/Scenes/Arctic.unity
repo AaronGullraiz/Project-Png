@@ -6911,7 +6911,7 @@ GameObject:
   - component: {fileID: 904152130}
   - component: {fileID: 904152131}
   m_Layer: 5
-  m_Name: P (4)
+  m_Name: P (4) - BubblesOn
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -16154,7 +16154,7 @@ GameObject:
   - component: {fileID: 2028571230}
   - component: {fileID: 2028571231}
   m_Layer: 5
-  m_Name: P (1)
+  m_Name: P (1) - BubblesOff
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
