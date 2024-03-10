@@ -24688,7 +24688,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61864aee46a2c8245b952ffa86f69996, type: 3}
+  m_audioClip: {fileID: 8300000, guid: da503c3c3dd0bd545aaac20ae121d6a4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -24800,7 +24800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  rotationSpeed: 2
+  rotationSpeed: 5
   touchAnimationsCount: 1
   OnTouch:
     m_PersistentCalls:
@@ -24829,8 +24829,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1347526782043238797}
+        m_TargetAssemblyTypeName: AnimalPathFollow, Assembly-CSharp
+        m_MethodName: PlayTouchAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Touch
+          m_BoolArgument: 0
+        m_CallState: 2
   waypoints: []
-  anim: {fileID: 0}
+  anim: {fileID: 2389749771255565401}
 --- !u!1 &3390107754876455514
 GameObject:
   m_ObjectHideFlags: 0
