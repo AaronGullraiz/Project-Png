@@ -24953,8 +24953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bacb5e126296145be9fef966879316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  rotationSpeed: 2
+  hasRunAnim: 1
+  walkSpeed: 1
+  runSpeed: 2.5
+  rotationSpeed: 5
   touchAnimationsCount: 2
   OnTouch:
     m_PersistentCalls:
@@ -24997,6 +24999,7 @@ MonoBehaviour:
         m_CallState: 2
   waypoints: []
   anim: {fileID: 2583766376918512264}
+  speed: 0.5
 --- !u!1 &3450324858489207849
 GameObject:
   m_ObjectHideFlags: 0

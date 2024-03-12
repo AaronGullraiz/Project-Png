@@ -15133,7 +15133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99665619483638045a79e0213f600584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  hasRunAnim: 0
+  walkSpeed: 1
+  runSpeed: 0
   rotationSpeed: 3
   touchAnimationsCount: 1
   OnTouch:
@@ -15165,6 +15167,7 @@ MonoBehaviour:
         m_CallState: 2
   waypoints: []
   anim: {fileID: 1681176645900987075}
+  speed: 0.25
   bubbles: {fileID: 1593025588742634862}
 --- !u!82 &3547930271340901033
 AudioSource:

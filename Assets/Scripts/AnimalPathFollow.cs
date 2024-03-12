@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class AnimalPathFollow : MonoBehaviour
 {
-    public float speed, rotationSpeed;
+    public bool hasRunAnim = false;
+    public float walkSpeed, runSpeed, rotationSpeed;
     [Range(1,10)]
     public int touchAnimationsCount = 1;
 
@@ -24,9 +25,11 @@ public class AnimalPathFollow : MonoBehaviour
     private Animator anim;
 
     private Coroutine routine;
+    public float speed;
 
     void Start()
     {
+        speed = walkSpeed;
         waypoints = WaypointsHolder.Instance.GetWaypoints(gameObject.name);
     }
 
@@ -73,8 +76,28 @@ public class AnimalPathFollow : MonoBehaviour
 
     public void PlayTouchAnimation(string animName)
     {
-        anim.Play(animName + touchAnim);
-        touchAnim = ((touchAnim + 1) % touchAnimationsCount);
+        if (touchAnim >= touchAnimationsCount && hasRunAnim)
+        {
+            isInTouch = false;
+            speed = runSpeed;
+            anim.Play("Run");
+            Invoke(nameof(ResetRun), 5);
+        }
+        else
+        {
+            speed = walkSpeed;
+            anim.Play(animName + touchAnim);
+        }
+        if(hasRunAnim)
+            touchAnim = ((touchAnim + 1) % (touchAnimationsCount+1));
+        else
+            touchAnim = ((touchAnim + 1) % touchAnimationsCount);
+    }
+
+    private void ResetRun()
+    {
+        speed = walkSpeed;
+        anim.SetTrigger("Walk");
     }
 
     protected virtual void ReachedWaypoint(Transform waypoint)
