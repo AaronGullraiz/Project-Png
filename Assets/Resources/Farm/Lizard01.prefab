@@ -785,7 +785,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61864aee46a2c8245b952ffa86f69996, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cab10810402ec0846b6282e783b6b421, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -896,8 +896,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bacb5e126296145be9fef966879316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  rotationSpeed: 2
+  hasRunAnim: 0
+  walkSpeed: 1
+  runSpeed: 2
+  rotationSpeed: 5
   touchAnimationsCount: 1
   OnTouch:
     m_PersistentCalls:
@@ -928,6 +930,7 @@ MonoBehaviour:
         m_CallState: 2
   waypoints: []
   anim: {fileID: 0}
+  speed: 0.5
 --- !u!1 &5345249455699330088
 GameObject:
   m_ObjectHideFlags: 0
