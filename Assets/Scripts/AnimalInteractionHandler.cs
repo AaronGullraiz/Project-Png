@@ -12,6 +12,9 @@ static extern bool SetCursorPos(int X, int Y);
 
 public UnityEvent clickEvent;
 
+    public SkinnedMeshRenderer[] renderers;
+    public MeshRenderer[] mRenderers;
+
     private void OnMouseEnter()
     {
         clickEvent.Invoke();
@@ -26,6 +29,14 @@ public UnityEvent clickEvent;
 
     public virtual void SetTexture(Texture2D texture)
     {
+        foreach (var r in renderers)
+        {
+            r.material.mainTexture=texture;
+        }
 
+        foreach (var r in mRenderers)
+        {
+            r.material.mainTexture = texture;
+        }
     }
 }

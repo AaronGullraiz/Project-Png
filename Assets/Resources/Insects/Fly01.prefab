@@ -25322,6 +25322,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  renderers:
+  - {fileID: 5953542763657505516}
 --- !u!114 &4914401286298606760
 MonoBehaviour:
   m_ObjectHideFlags: 0

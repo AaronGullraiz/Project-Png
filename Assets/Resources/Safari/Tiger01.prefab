@@ -10072,8 +10072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94046aa67e48e645931a7914a67f96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 7458843025653795697}
-  anim: {fileID: 3189570446011943944}
   waypoints: []
   OnTouchEvent:
     m_PersistentCalls:
@@ -10129,6 +10127,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  renderers:
+  - {fileID: 3189570446016230088}
 --- !u!82 &536096349111826202
 AudioSource:
   m_ObjectHideFlags: 0

@@ -20823,6 +20823,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  renderers:
+  - {fileID: 5594469540979839656}
 --- !u!82 &2702753051606301954
 AudioSource:
   m_ObjectHideFlags: 0

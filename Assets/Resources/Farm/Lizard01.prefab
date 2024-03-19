@@ -775,6 +775,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  renderers:
+  - {fileID: 9016274472464921760}
 --- !u!82 &5405039735825930287
 AudioSource:
   m_ObjectHideFlags: 0
