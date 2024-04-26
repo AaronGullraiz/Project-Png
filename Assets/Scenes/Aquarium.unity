@@ -980,7 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2436e0f4e7fa8c4ea27ec8637bb8ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qrManager: {fileID: 0}
+  qrManager: {fileID: 1011133423}
   timerTxt: {fileID: 1102143231}
   walkSpeedSlider: {fileID: 2058663574}
   school: {fileID: 0}
