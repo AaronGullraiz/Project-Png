@@ -20584,7 +20584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026d1e86cfedf3a4680ba32148fa9625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalBodies: []
+  animalBodies:
+  - {fileID: 6034933036054271339}
 --- !u!114 &6034933036054271339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20614,6 +20615,7 @@ MonoBehaviour:
         m_CallState: 2
   renderers:
   - {fileID: 6096339523343763762}
+  mRenderers: []
 --- !u!1 &5096130724381277427
 GameObject:
   m_ObjectHideFlags: 0

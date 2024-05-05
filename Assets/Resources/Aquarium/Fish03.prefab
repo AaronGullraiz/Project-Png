@@ -187,7 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026d1e86cfedf3a4680ba32148fa9625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalBodies: []
+  animalBodies:
+  - {fileID: 7816148244288182407}
 --- !u!65 &4576707552139680320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,6 +243,7 @@ MonoBehaviour:
         m_CallState: 2
   renderers:
   - {fileID: 1876955201586198625}
+  mRenderers: []
 --- !u!82 &4498183171109694548
 AudioSource:
   m_ObjectHideFlags: 0

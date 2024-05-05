@@ -15587,6 +15587,7 @@ MonoBehaviour:
         m_CallState: 2
   renderers:
   - {fileID: 4082095970156073067}
+  mRenderers: []
 --- !u!82 &2128260810887370679
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15695,7 +15696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026d1e86cfedf3a4680ba32148fa9625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalBodies: []
+  animalBodies:
+  - {fileID: 8013730753475951407}
 --- !u!1 &4082095971387188332
 GameObject:
   m_ObjectHideFlags: 0

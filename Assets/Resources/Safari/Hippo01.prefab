@@ -25670,6 +25670,7 @@ MonoBehaviour:
         m_CallState: 2
   renderers:
   - {fileID: 6350161739057501786}
+  mRenderers: []
 --- !u!82 &7590921127421470499
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25778,7 +25779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026d1e86cfedf3a4680ba32148fa9625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalBodies: []
+  animalBodies:
+  - {fileID: 4133921457498589462}
 --- !u!1 &9148391803095893108
 GameObject:
   m_ObjectHideFlags: 0
