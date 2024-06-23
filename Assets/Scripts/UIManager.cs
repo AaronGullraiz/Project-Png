@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public CameraCurve cameraCurve;
     public QRManager qrManager;
     public Text timerTxt;
 
     [Header("Gameplay Walk speed Settings")]
-    public Slider walkSpeedSlider;
+    public Slider walkSpeedSlider, cameraCurveSlider;
 
     public void UpdateTime(string time)
     {
@@ -57,6 +58,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1 + ((walkSpeedSlider.value * walkSpeedSlider.value) * 0.1f);
         //AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
+        cameraCurve.SetCameraCurve(cameraCurveSlider.value);
     }
 
     private void OnDisable()
