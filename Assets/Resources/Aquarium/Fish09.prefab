@@ -880,6 +880,7 @@ GameObject:
   - component: {fileID: 3055182835156433860}
   - component: {fileID: 6377422124166160604}
   - component: {fileID: 4530668921975478341}
+  - component: {fileID: 3659610272856936803}
   m_Layer: 4
   m_Name: Fish09
   m_TagString: Untagged
@@ -1118,6 +1119,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3659610272856936803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451810430925191860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36c36ada7d1abc439db12cf673e4bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7613381884743228490
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4370146015619088649}
   - component: {fileID: 3135015462413117480}
   - component: {fileID: 7588247657299018723}
+  - component: {fileID: -6129370120046040604}
   m_Layer: 0
   m_Name: Plant01
   m_TagString: Untagged
@@ -267,3 +268,15 @@ MonoBehaviour:
   meshes:
   - {fileID: 3946225061226116707}
   skinnedMeshes: []
+--- !u!114 &-6129370120046040604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297535123197515702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36c36ada7d1abc439db12cf673e4bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

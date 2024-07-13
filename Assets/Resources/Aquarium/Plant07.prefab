@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 463937593704343014}
   - component: {fileID: 3979787047834525029}
   - component: {fileID: 8390603776443137936}
+  - component: {fileID: 5369092326949915855}
   m_Layer: 0
   m_Name: Plant07
   m_TagString: Untagged
@@ -267,3 +268,15 @@ MonoBehaviour:
   meshes:
   - {fileID: 4504890422567938337}
   skinnedMeshes: []
+--- !u!114 &5369092326949915855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703401711775975668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36c36ada7d1abc439db12cf673e4bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

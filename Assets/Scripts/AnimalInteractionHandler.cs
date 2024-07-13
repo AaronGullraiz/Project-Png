@@ -15,7 +15,7 @@ public UnityEvent clickEvent;
     public SkinnedMeshRenderer[] renderers;
     public MeshRenderer[] mRenderers;
 
-    private void OnMouseEnter()
+    public void OnMouseEnter()
     {
         clickEvent.Invoke();
 

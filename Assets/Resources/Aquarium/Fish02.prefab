@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 7302685684522245220}
   - component: {fileID: 2225182455644546356}
   - component: {fileID: 4805243762658080755}
+  - component: {fileID: 2166515900971360330}
   m_Layer: 4
   m_Name: Fish02
   m_TagString: Untagged
@@ -386,6 +387,18 @@ MonoBehaviour:
   meshes: []
   skinnedMeshes:
   - {fileID: 2227401276774699772}
+--- !u!114 &2166515900971360330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4598956375553652549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36c36ada7d1abc439db12cf673e4bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5290408707554601684
 GameObject:
   m_ObjectHideFlags: 0
