@@ -160,174 +160,174 @@ public class WebcamHandler : MonoBehaviour {
         Color32[] pixelArray = webcamTexture.GetPixels32();
 
         // If it is not the first frame, check for changes in pixels
-        if (prevPixelArray != null) // no previous pixel array available; i.e. not the first frame
-        {
-            // Make a copy of the pixel array to allow editing
-            Color32[] editedPixelArray = (Color32[])pixelArray.Clone();  // to edit the video's pixels
+        //if (prevPixelArray != null) // no previous pixel array available; i.e. not the first frame
+        //{
+        //    // Make a copy of the pixel array to allow editing
+        //    Color32[] editedPixelArray = (Color32[])pixelArray.Clone();  // to edit the video's pixels
 
-            // Clear blob/input list before processing this frame's data
-            BlobData.blobs.Clear(); // clear list of blobs away
-            WebcamInputReceiver.instance.ClearInputList();  // clear crosses & red blobs list as it should only store those that exist this frame
+        //    // Clear blob/input list before processing this frame's data
+        //    BlobData.blobs.Clear(); // clear list of blobs away
+        //    WebcamInputReceiver.instance.ClearInputList();  // clear crosses & red blobs list as it should only store those that exist this frame
 
-            /***************************
-             * Process pixels in array
-             ***************************/
-            // Loop through pixel array to process each pixel
-            //for (int posX = minWidth; posX < maxWidth; ++posX)   // Position of X pixel in final texture output
-            for (int posX = 0; posX < width; ++posX)   // Position of X pixel in final texture output
-            {
-                // Get x-index of pixel to process
-                int idxX = posX;    // get x-index for pixel
-                                    // If horizontalFlip setting is true, take the flipped corresponding index
-                if (CalibrationData.instance.horizontalFlip)    // horizontal flip
-                    idxX = width - posX - 1;    // apply flip
+        //    /***************************
+        //     * Process pixels in array
+        //     ***************************/
+        //    // Loop through pixel array to process each pixel
+        //    //for (int posX = minWidth; posX < maxWidth; ++posX)   // Position of X pixel in final texture output
+        //    for (int posX = 0; posX < width; ++posX)   // Position of X pixel in final texture output
+        //    {
+        //        // Get x-index of pixel to process
+        //        int idxX = posX;    // get x-index for pixel
+        //                            // If horizontalFlip setting is true, take the flipped corresponding index
+        //        if (CalibrationData.instance.horizontalFlip)    // horizontal flip
+        //            idxX = width - posX - 1;    // apply flip
 
-                // Loop through pixel array; to process each pixel
-                //for (int posY = minHeight; posY < maxHeight; ++posY) // Position of Y pixel in final texture output
-                for (int posY = 0; posY < height; ++posY) // Position of Y pixel in final texture output
-                {
-                    // Calculate the actual pixel position
-                    int pixelPos = posY * width + posX; // index position in final texture output
+        //        // Loop through pixel array; to process each pixel
+        //        //for (int posY = minHeight; posY < maxHeight; ++posY) // Position of Y pixel in final texture output
+        //        for (int posY = 0; posY < height; ++posY) // Position of Y pixel in final texture output
+        //        {
+        //            // Calculate the actual pixel position
+        //            int pixelPos = posY * width + posX; // index position in final texture output
 
-                    // Check if point is inside trapezium or not; if point is outside trapezium, skip processing this point
-                    //if (IsPointOutsideQuad(posX, posY))
-                    if (trapeziumsManager.IsPointOutsideTrapeziums(posX, posY))
-                    {
-                        editedPixelArray[pixelPos] = new Color32(0, 0, 0, 1);   // set the pixel to black
-                        continue;
-                    }
+        //            // Check if point is inside trapezium or not; if point is outside trapezium, skip processing this point
+        //            //if (IsPointOutsideQuad(posX, posY))
+        //            if (trapeziumsManager.IsPointOutsideTrapeziums(posX, posY))
+        //            {
+        //                editedPixelArray[pixelPos] = new Color32(0, 0, 0, 1);   // set the pixel to black
+        //                continue;
+        //            }
 
-                    // Get y-index of pixel to process
-                    int idxY = posY;    // get y-index for pixel
-                                        // If verticalFlip setting is true, take the flipped corresponding index
-                    if (CalibrationData.instance.verticalFlip)  // vertical flip
-                        idxY = height - posY - 1;   // apply flip
+        //            // Get y-index of pixel to process
+        //            int idxY = posY;    // get y-index for pixel
+        //                                // If verticalFlip setting is true, take the flipped corresponding index
+        //            if (CalibrationData.instance.verticalFlip)  // vertical flip
+        //                idxY = height - posY - 1;   // apply flip
 
-                    // Get the pixel to process
-                    int pixelIdx = idxY * width + idxX; // index of pixel to use for calculation
+        //            // Get the pixel to process
+        //            int pixelIdx = idxY * width + idxX; // index of pixel to use for calculation
 
-                    // If there is a flip, re-assign pixel to pixel array (as pixel would have changed)
-                    if (CalibrationData.instance.horizontalFlip || CalibrationData.instance.verticalFlip)
-                        editedPixelArray[pixelPos] = pixelArray[pixelIdx];
+        //            // If there is a flip, re-assign pixel to pixel array (as pixel would have changed)
+        //            if (CalibrationData.instance.horizontalFlip || CalibrationData.instance.verticalFlip)
+        //                editedPixelArray[pixelPos] = pixelArray[pixelIdx];
 
-                    // Get the colour distance (squared), i.e. difference in colour from the previous frame's pixel in the same pos
-                    float colorDistSqr = Utility.DistSqr(prevPixelArray[pixelIdx].r, pixelArray[pixelIdx].r,
-                                                prevPixelArray[pixelIdx].g, pixelArray[pixelIdx].g,
-                                                prevPixelArray[pixelIdx].b, pixelArray[pixelIdx].b);
-                    // Check if the colour distance (squared) exceeds the threshold
-                    // If it exceeds, it means the pixel at that position has changed greatly, and thus there was motion
-                    if (colorDistSqr > CalibrationData.instance.colorThresholdSqr)  // this is a moving pixel
-                    {
-                        // If it is near a blob, save it into a blob
-                        bool addedToBlob = false;
-                        foreach (BlobData blob in BlobData.blobs)
-                        {
-                            if (blob.IsNear(posX, posY) && blob.Size() < CalibrationData.instance.maxBlobSize)
-                            {
-                                blob.Add(posX, posY);
-                                addedToBlob = true;
-                                break;
-                            }
-                        }
+        //            // Get the colour distance (squared), i.e. difference in colour from the previous frame's pixel in the same pos
+        //            float colorDistSqr = Utility.DistSqr(prevPixelArray[pixelIdx].r, pixelArray[pixelIdx].r,
+        //                                        prevPixelArray[pixelIdx].g, pixelArray[pixelIdx].g,
+        //                                        prevPixelArray[pixelIdx].b, pixelArray[pixelIdx].b);
+        //            // Check if the colour distance (squared) exceeds the threshold
+        //            // If it exceeds, it means the pixel at that position has changed greatly, and thus there was motion
+        //            if (colorDistSqr > CalibrationData.instance.colorThresholdSqr)  // this is a moving pixel
+        //            {
+        //                // If it is near a blob, save it into a blob
+        //                bool addedToBlob = false;
+        //                foreach (BlobData blob in BlobData.blobs)
+        //                {
+        //                    if (blob.IsNear(posX, posY) && blob.Size() < CalibrationData.instance.maxBlobSize)
+        //                    {
+        //                        blob.Add(posX, posY);
+        //                        addedToBlob = true;
+        //                        break;
+        //                    }
+        //                }
 
-                        // If not near any blob, create a new blob for it
-                        if (!addedToBlob)
-                        {
-                            BlobData newBlob = new BlobData(posX, posY);
-                            BlobData.blobs.Add(newBlob);
-                        }
-                    }
-                }
-            }   /// End of pixelArray for loops
+        //                // If not near any blob, create a new blob for it
+        //                if (!addedToBlob)
+        //                {
+        //                    BlobData newBlob = new BlobData(posX, posY);
+        //                    BlobData.blobs.Add(newBlob);
+        //                }
+        //            }
+        //        }
+        //    }   /// End of pixelArray for loops
 
-            /*****************
-             * Process blobs
-             *****************/
-            /// Add blobs to pixels to be rendered
-            // find the biggest blob
-            //int blobIdx = BlobData.GetIndexOfLargestBlob();
+        //    /*****************
+        //     * Process blobs
+        //     *****************/
+        //    /// Add blobs to pixels to be rendered
+        //    // find the biggest blob
+        //    //int blobIdx = BlobData.GetIndexOfLargestBlob();
 
-            // If there are no blobs, skip
-            if (BlobData.blobs.Count == 0)
-                goto EndOfProcessingBlobs;
+        //    // If there are no blobs, skip
+        //    if (BlobData.blobs.Count == 0)
+        //        goto EndOfProcessingBlobs;
 
-            // calculate acceptable blob size for red blob for this frame
-            int acceptableRedBlobSize = BlobData.CalculateAcceptableRedBlobSize();
+        //    // calculate acceptable blob size for red blob for this frame
+        //    int acceptableRedBlobSize = BlobData.CalculateAcceptableRedBlobSize();
 
-            // turn the biggest blob to red; rest to white
-            for (int i = 0; i < BlobData.blobs.Count; ++i)
-            {
-                // Check minimum size
-                if (BlobData.blobs[i].Size() < CalibrationData.instance.minimumBlobSize)    // blob is too small; ignore it
-                    continue;
+        //    // turn the biggest blob to red; rest to white
+        //    for (int i = 0; i < BlobData.blobs.Count; ++i)
+        //    {
+        //        // Check minimum size
+        //        if (BlobData.blobs[i].Size() < CalibrationData.instance.minimumBlobSize)    // blob is too small; ignore it
+        //            continue;
 
-                //if (i == blobIdx)   // [SCRAPPED] The largest blob becomes the red blob
-                //else if (BlobData.blobs[i].Size() >= acceptableRedBlobSize) // [scrapped for testing] those above acceptable red blob size become red blobs
-                else    // all blobs above min. blob size become red blobs
-                {
-                    // Store red blobs
-                    BlobData.redBlobs.Add(BlobData.blobs[i]);
-                }
-                // [scrapped for testing] Blobs below the acceptable red blob size will be white blobs, & crosses will not be generated
-                //else
-                //{
-                //    // Set pixels to white
-                //    for (int j = 0; j < BlobData.blobs[i].Size(); ++j)
-                //    {
-                //        Point pixel = BlobData.blobs[i].GetPixel(j);
-                //        int pixelIdx = pixel.y * width + pixel.x;
-                //
-                //        // Replace the pixel in the frame with white
-                //        editedPixelArray[pixelIdx].r = 255;
-                //        editedPixelArray[pixelIdx].g = 255;
-                //        editedPixelArray[pixelIdx].b = 255;
-                //    }
-                //}
-            }
+        //        //if (i == blobIdx)   // [SCRAPPED] The largest blob becomes the red blob
+        //        //else if (BlobData.blobs[i].Size() >= acceptableRedBlobSize) // [scrapped for testing] those above acceptable red blob size become red blobs
+        //        else    // all blobs above min. blob size become red blobs
+        //        {
+        //            // Store red blobs
+        //            BlobData.redBlobs.Add(BlobData.blobs[i]);
+        //        }
+        //        // [scrapped for testing] Blobs below the acceptable red blob size will be white blobs, & crosses will not be generated
+        //        //else
+        //        //{
+        //        //    // Set pixels to white
+        //        //    for (int j = 0; j < BlobData.blobs[i].Size(); ++j)
+        //        //    {
+        //        //        Point pixel = BlobData.blobs[i].GetPixel(j);
+        //        //        int pixelIdx = pixel.y * width + pixel.x;
+        //        //
+        //        //        // Replace the pixel in the frame with white
+        //        //        editedPixelArray[pixelIdx].r = 255;
+        //        //        editedPixelArray[pixelIdx].g = 255;
+        //        //        editedPixelArray[pixelIdx].b = 255;
+        //        //    }
+        //        //}
+        //    }
 
-            //===============================================
-            // render red blobs - cross skip value version
-            //===============================================
-            // Generate crosses for red blobs only
-            for (int i = BlobData.redBlobs.Count - 1; i >= 0; --i)
-            {
-                // Get reference to the red blob
-                BlobData redblob = BlobData.redBlobs[i];
+        //    //===============================================
+        //    // render red blobs - cross skip value version
+        //    //===============================================
+        //    // Generate crosses for red blobs only
+        //    for (int i = BlobData.redBlobs.Count - 1; i >= 0; --i)
+        //    {
+        //        // Get reference to the red blob
+        //        BlobData redblob = BlobData.redBlobs[i];
 
-                // Go through all pixels in red blob
-                int crossSkipCount = 0; // used to track whether a cross should be generated
-                for (int j = 0; j < redblob.Size(); ++j)
-                {
-                    // Get pixel point
-                    Point pixel = redblob.GetPixel(j);
-                    int pixelIdx = pixel.y * width + pixel.x;
+        //        // Go through all pixels in red blob
+        //        int crossSkipCount = 0; // used to track whether a cross should be generated
+        //        for (int j = 0; j < redblob.Size(); ++j)
+        //        {
+        //            // Get pixel point
+        //            Point pixel = redblob.GetPixel(j);
+        //            int pixelIdx = pixel.y * width + pixel.x;
 
-                    // Replace the pixel in the frame with red
-                    editedPixelArray[pixelIdx].r = 255;
-                    editedPixelArray[pixelIdx].g = 0;
-                    editedPixelArray[pixelIdx].b = 0;
+        //            // Replace the pixel in the frame with red
+        //            editedPixelArray[pixelIdx].r = 255;
+        //            editedPixelArray[pixelIdx].g = 0;
+        //            editedPixelArray[pixelIdx].b = 0;
 
-                    // Add crosses when red blob first instantiated
-                    if (redblob.IsFirstFrame() && crossSkipCount == j)  // if red blob's first frame, and can generate cross at this pixel
-                    {
-                        // Add red blob to WebcamInputReceiver - first frame only
-                        WebcamInputReceiver.instance.AddRedBlob(redblob);
+        //            // Add crosses when red blob first instantiated
+        //            if (redblob.IsFirstFrame() && crossSkipCount == j)  // if red blob's first frame, and can generate cross at this pixel
+        //            {
+        //                // Add red blob to WebcamInputReceiver - first frame only
+        //                WebcamInputReceiver.instance.AddRedBlob(redblob);
 
-                        // Add cross
-                        //if (CalibrationCorners.instance.IsWithinMarkers(pixel.x, pixel.y))
-                        //{
-                        WebcamInputReceiver.instance.AddCross(pixel);
-                        //}
-                        // Set next skip count value
-                        crossSkipCount += 1 + CalibrationData.instance.skipValue;
-                    }
-                }
-            }   /// End of processing red blobs
+        //                // Add cross
+        //                //if (CalibrationCorners.instance.IsWithinMarkers(pixel.x, pixel.y))
+        //                //{
+        //                WebcamInputReceiver.instance.AddCross(pixel);
+        //                //}
+        //                // Set next skip count value
+        //                crossSkipCount += 1 + CalibrationData.instance.skipValue;
+        //            }
+        //        }
+        //    }   /// End of processing red blobs
 
-            EndOfProcessingBlobs:   // essentially, the end of the frame (after processing blob data)
-            // update texture here
-            UpdateImageTexture(editedPixelArray);
-        }   /// End of processing previous pixel array
+        //    EndOfProcessingBlobs:   // essentially, the end of the frame (after processing blob data)
+        //    // update texture here
+        //    UpdateImageTexture(editedPixelArray);
+        //}   /// End of processing previous pixel array
 
         // Assign prevPixelArray for next frame to reference
         prevPixelArray = (Color32[])pixelArray.Clone();
