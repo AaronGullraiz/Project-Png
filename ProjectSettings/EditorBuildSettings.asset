@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestEffect.unity
     guid: bb5f562659f008b459c74f30b8b538e4
+  - enabled: 1
+    path: Assets/Scenes/CalibrationScene.unity
+    guid: c88497a16c7caf64293a96c9cd2a8396
   m_configObjects: {}
