@@ -20,18 +20,23 @@ public class MenuManager : MonoBehaviour
 
     private List<GameObject> togglers;
 
+    static List<string> m_HistoryList = new List<string>();
+
     private void Start()
     {
-        illuminationSlider.value = PrefsHandler.butterflyIlluminationStrength;
-
-        togglers = new List<GameObject>();
-        toggleObject.GetComponent<MenuSceneDayNightToggleHandler>().Setup(scenesList[0]);
-        togglers.Add(toggleObject);
-        for (int i = 1; i < scenesList.Length; i++)
+        if (illuminationSlider)
+            illuminationSlider.value = PrefsHandler.butterflyIlluminationStrength;
+        if (toggleObject)
         {
-            var obj = Instantiate(toggleObject, toggleObject.transform.parent) as GameObject;
-            obj.GetComponent<MenuSceneDayNightToggleHandler>().Setup(scenesList[i]);
-            togglers.Add(obj);
+            togglers = new List<GameObject>();
+            toggleObject.GetComponent<MenuSceneDayNightToggleHandler>().Setup(scenesList[0]);
+            togglers.Add(toggleObject);
+            for (int i = 1; i < scenesList.Length; i++)
+            {
+                var obj = Instantiate(toggleObject, toggleObject.transform.parent) as GameObject;
+                obj.GetComponent<MenuSceneDayNightToggleHandler>().Setup(scenesList[i]);
+                togglers.Add(obj);
+            }
         }
     }
 
@@ -42,6 +47,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        m_HistoryList.Add(SceneManager.GetActiveScene().name);
         loadingScreen.SetActive(true);
         PrefsHandler.butterflyIlluminationStrength = Mathf.RoundToInt(illuminationSlider.value);
         SaveDayNightToggleData();
@@ -53,6 +59,17 @@ public class MenuManager : MonoBehaviour
         foreach (var item in togglers)
         {
             item.GetComponent<MenuSceneDayNightToggleHandler>().SaveData();
+        }
+    }
+
+    public void Back()
+    {
+        // go back to the previous scene
+        if (m_HistoryList.Count > 0)
+        {
+            string sceneName = m_HistoryList[m_HistoryList.Count - 1];
+            m_HistoryList.RemoveAt(m_HistoryList.Count - 1);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

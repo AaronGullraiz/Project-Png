@@ -55,7 +55,6 @@ public class WebcamTextureImage : MonoBehaviour {
 
         // set webcam texture onto raw image
         rawImage.texture = WebcamHandler.instance.GetWebcamTexture();
-        rawImage.material.mainTexture = WebcamHandler.instance.GetWebcamTexture();
 
         // calculate scale factor
         scaleFactorX = rawImage.GetComponent<RectTransform>().sizeDelta.x / WebcamHandler.instance.GetWidth();
