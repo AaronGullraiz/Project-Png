@@ -90,7 +90,7 @@ public class WebcamTextureImage : MonoBehaviour {
         foreach (Point pixel in WebcamInputReceiver.instance.GetCrossesList())
         {
             GameObject crossRender = Instantiate(CalibrationData.instance.thresholdCrossPrefab, Vector3.zero, Quaternion.identity);
-            crossRender.transform.SetParent(thresholdCrosses);
+            //crossRender.transform.SetParent(thresholdCrosses);
             Vector2 position = new Vector2(pixel.x, pixel.y);
 
             //float xPos = -position.x * (640f / WebcamHandler.instance.GetWidth()) * 0.8f + 640 * 0.4f;

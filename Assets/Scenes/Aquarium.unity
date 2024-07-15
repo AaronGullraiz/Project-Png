@@ -1125,6 +1125,7 @@ GameObject:
   - component: {fileID: 121593519}
   - component: {fileID: 121593518}
   - component: {fileID: 121593517}
+  - component: {fileID: 121593522}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1238,6 +1239,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &121593522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121593516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e493938de3d14c34eb0d6468ecf06a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &127419266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10193,6 +10206,7 @@ GameObject:
   - component: {fileID: 478176787}
   - component: {fileID: 478176786}
   - component: {fileID: 478176785}
+  - component: {fileID: 478176788}
   m_Layer: 5
   m_Name: webcam texture
   m_TagString: Untagged
@@ -10268,6 +10282,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478176783}
   m_CullTransparentMesh: 1
+--- !u!114 &478176788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478176783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e24eaa81180898478c9c99873d5c471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &482911204
 GameObject:
   m_ObjectHideFlags: 0
