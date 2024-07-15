@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishWebcamUpdater : EffectManager
+public class AquariumWebcamUpdater : EffectManager
 {
     protected override void HandlePoint(Vector2 point)
     {
