@@ -11051,7 +11051,7 @@ GameObject:
   - component: {fileID: 2607712599968670224}
   m_Layer: 0
   m_Name: Adder01
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

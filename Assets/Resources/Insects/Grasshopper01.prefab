@@ -25227,7 +25227,7 @@ GameObject:
   - component: {fileID: 2188783493561522658}
   m_Layer: 0
   m_Name: Grasshopper01
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

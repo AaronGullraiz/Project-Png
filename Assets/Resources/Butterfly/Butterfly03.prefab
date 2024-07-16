@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 4562077808464010797}
   m_Layer: 0
   m_Name: Butterfly3
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,6 +332,8 @@ MonoBehaviour:
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
+  renderers: []
+  mRenderers: []
   meshes:
   - {fileID: 8363377351173481637}
   - {fileID: 8589377745086528990}
@@ -513,7 +515,7 @@ GameObject:
   - component: {fileID: 1472662937608598979}
   m_Layer: 0
   m_Name: Butterfly03
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -619,6 +621,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  renderers: []
+  mRenderers: []
 --- !u!114 &1472662937608598979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,7 +719,7 @@ GameObject:
   - component: {fileID: 3060760698987199442}
   m_Layer: 0
   m_Name: Butterfly01 (1)
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -751,6 +755,8 @@ MonoBehaviour:
   clickEvent:
     m_PersistentCalls:
       m_Calls: []
+  renderers: []
+  mRenderers: []
   meshes:
   - {fileID: 235564986190779539}
   - {fileID: 29224969302101480}
@@ -809,6 +815,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   butterfly: {fileID: 450857650120775199}
+  animationEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &8860555375946747101
 Animator:
   serializedVersion: 3

@@ -12,7 +12,7 @@ public class ArticWebcamUpdater : EffectManager
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(point), out hitInfo))
         {
-            if (hitInfo.collider.tag == "Player")
+            if (hitInfo.collider.tag == "Animal")
             {
                 hitInfo.transform.GetComponent<AnimalInteractionHandler>().OnMouseEnter();
             }

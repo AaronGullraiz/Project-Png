@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - HerdChild
+  - Canvas
+  - Fish
+  - Animal
+  - Butterfly
   layers:
   - Default
   - TransparentFX

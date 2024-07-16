@@ -15441,7 +15441,7 @@ GameObject:
   - component: {fileID: 3050194658992911943}
   m_Layer: 0
   m_Name: Tortoise01
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

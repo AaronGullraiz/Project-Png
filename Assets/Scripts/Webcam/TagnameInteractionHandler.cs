@@ -1,9 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AquariumWebcamUpdater : EffectManager
+public class TagnameInteractionHandler : EffectManager
 {
+    [SerializeField, Tooltip("The tagname to interact with")]
+    private string tagName = "Butterfly";
     protected override void HandlePoint(Vector2 point)
     {
         base.HandlePoint(point);
@@ -12,7 +14,7 @@ public class AquariumWebcamUpdater : EffectManager
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(point), out hitInfo))
         {
-            if (hitInfo.collider.tag == "Fish")
+            if (hitInfo.collider.tag == tagName)
             {
                 hitInfo.transform.GetComponent<FishEffect>().OnMouseOver();
             }

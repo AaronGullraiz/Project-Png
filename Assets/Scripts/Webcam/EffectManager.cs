@@ -18,11 +18,6 @@ public class EffectManager : MonoBehaviour {
             WebcamHandler.instance.ActivateWebcam();
     }
 	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
     /// <summary>
     ///  To be called by child classes to go through the list of crosses.
     ///  Input to be mapped to screen size if useScreenSize is true
