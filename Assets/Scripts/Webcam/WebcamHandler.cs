@@ -22,6 +22,8 @@ public class WebcamHandler : MonoBehaviour
 
     [SerializeField] private int requestedWidth = 160;
     [SerializeField] private int requestedHeight = 120;
+    [SerializeField, Tooltip("chosen webcam device name")]
+    private string webcamDeviceName;
 
     //public int colorThreshold = 25;
 
@@ -73,7 +75,7 @@ public class WebcamHandler : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        webcamDeviceName = PlayerPrefs.GetString(WebcamDropdown.CONST_WEBCAMNAME);
         minWidth = 0;
         maxWidth = 160;
         minHeight = 0;
@@ -100,9 +102,20 @@ public class WebcamHandler : MonoBehaviour
 
     public void ActivateWebcam()
     {
-        if (webcamTexture == null)
+        if (webcamTexture)
+        {
+            webcamTexture.Stop();
+            Destroy(webcamTexture);
+            webcamTexture = null;
+        }
+        if (string.IsNullOrEmpty(webcamDeviceName))
+        {
             webcamTexture = new WebCamTexture(WebCamTexture.devices[0].name, requestedWidth, requestedHeight, 30);
-
+        }
+        else
+        {
+            webcamTexture = new WebCamTexture(webcamDeviceName, requestedWidth, requestedHeight, 30);
+        }
         webcamTexture.Play();
         webcamActive = true;
     }
@@ -350,5 +363,11 @@ public class WebcamHandler : MonoBehaviour
     {
         imageTexture.SetPixels32(pixelArray);
         imageTexture.Apply(true);   // updateMipmaps = true
+    }
+
+    public void ChooseWebcam(string webcamName)
+    {
+        webcamDeviceName = webcamName;
+        ActivateWebcam();
     }
 }
