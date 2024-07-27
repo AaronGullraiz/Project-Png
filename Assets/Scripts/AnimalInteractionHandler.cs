@@ -15,11 +15,20 @@ public UnityEvent clickEvent;
     public SkinnedMeshRenderer[] renderers;
     public MeshRenderer[] mRenderers;
 
+    private int cursorPosX, cursorPosY;
+    private void Awake()
+    {
+        // Set cursor position to top-middle of screen
+        cursorPosX = (int)(Screen.width * 0.5f);
+        cursorPosY = 0;
+    }
+
     public void OnMouseEnter()
     {
         clickEvent.Invoke();
 
-        SetCursorPos(0, Screen.height);//Call this to set the mouse position
+        //SetCursorPos(0, Screen.height);//Call this to set the mouse position to the bottom-left of screen
+        SetCursorPos(cursorPosX, cursorPosY);//Call this to set the mouse position
     }
 
     public void SetParent(Transform ob)
