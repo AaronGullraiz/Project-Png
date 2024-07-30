@@ -58,7 +58,10 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1 + ((walkSpeedSlider.value * walkSpeedSlider.value) * 0.1f);
         //AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
-        cameraCurve.SetCameraCurve(cameraCurveSlider.value);
+        
+        // Update Camera Curve if it's assigned
+        if (cameraCurve != null)
+            cameraCurve.SetCameraCurve(cameraCurveSlider.value);
     }
 
     private void OnDisable()
