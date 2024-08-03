@@ -78,7 +78,16 @@ public class SceneLoader
         }
     }
 
-    [MenuItem("SceneHandler/PlayStop _F5")]
+    [MenuItem("SceneHandler/Open Singapore Gameplay Scene #F6")]
+    static void OpenSingaporeGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Singapore.unity");
+        }
+    }
+
+   [MenuItem("SceneHandler/PlayStop _F5")]
     private static void PlayStopButton()
     {
         if (!EditorApplication.isPlaying)
