@@ -10,7 +10,7 @@ public class AnimalsSpawner : MonoBehaviour
 
     public GameObject[] animals;
 
-    private List<GameObject> spawnedAnimals;
+    protected List<GameObject> spawnedAnimals;
 
     private void Awake()
     {
@@ -25,9 +25,10 @@ public class AnimalsSpawner : MonoBehaviour
         {
             if(animal.name.Equals(name) && animal.transform.childCount==0)
             {
-                var an = Instantiate(Resources.Load($"{folderName}/{name}"), animal.transform) as GameObject;
+                Object animalObj = Resources.Load($"{folderName}/{name}");
+                var an = Instantiate(animalObj, animal.transform) as GameObject;
                 an.name = name;
-                an.GetComponent<SetTexture>().SetTextureOnAnimal(texture);
+                an.GetComponent<SetTexture2D>().SetTextureOnAnimal(texture);
                 spawnedAnimals.Add(an);
                 return true;
             }
@@ -49,11 +50,18 @@ public class AnimalsSpawner : MonoBehaviour
         }
     }
 
-    public void SetAnimalsSpeed(int amount)
+    public virtual void SetAnimalsSpeed(int amount)
     {
         foreach (var animal in spawnedAnimals)
         {
             animal.GetComponent<AnimalController>().SetWalkSpeed(amount);
+        }
+    }
+    public void SetAnimalsSpeed(float amount)
+    {
+        foreach (var animal in spawnedAnimals)
+        {
+            animal.GetComponentInChildren<BubbleHandler>().touchSpeed = amount;
         }
     }
 }

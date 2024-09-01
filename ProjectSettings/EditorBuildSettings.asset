@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CalibrationScene.unity
     guid: c88497a16c7caf64293a96c9cd2a8396
+  - enabled: 1
+    path: Assets/Scenes/Bubbles.unity
+    guid: af9bd464b1a50044bb64be35096e2087
   m_configObjects: {}

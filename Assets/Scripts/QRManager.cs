@@ -32,16 +32,16 @@ public class QRManager : MonoBehaviour
 
     private void LoadAnimal(string filePath)
     {
-        Debug.LogError("Loading: "+filePath);
+        Debug.Log("Loading: "+filePath);
         var pic = LoadImages(filePath);
         var result = _decoder.Decode(pic.GetPixels32(), pic.width, pic.height);
         if (result.Success)
         {
-            Debug.LogError(result.Text);
+            Debug.Log($"Loading in QRManager LoadAnimal(): {folderName}/{result.Text}");
             var obj = Resources.Load($"{folderName}/{result.Text}");
             if (AnimalsSpawner.Instance.SpawnAnimal(result.Text,pic))
             {
-                Debug.LogError("Animal Spawned: " + result.Text);
+                Debug.Log("Animal Spawned: " + result.Text);
             }
             else
             {
