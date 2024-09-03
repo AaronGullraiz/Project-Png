@@ -42,6 +42,14 @@ public class AnimalController : MonoBehaviour
                 agent.SetDestination(waypoints[waypointIndex].position);
             }
         }
+        else if (agent.isStopped && anim.GetBool("Walk"))
+        {
+            RestartWalk();
+        }
+        else if (!anim.GetBool("Walk") && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            anim.SetBool("Walk", true);
+        }
     }
 
     private Vector3 velocity;
@@ -55,7 +63,7 @@ public class AnimalController : MonoBehaviour
             velocity = agent.velocity;
             agent.velocity = Vector3.zero;
             anim.SetTrigger("Touch1");
-
+            anim.SetBool("Walk", false);
             OnTouchEvent.Invoke();
         }
     }

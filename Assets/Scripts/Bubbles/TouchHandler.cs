@@ -33,7 +33,7 @@ public class TouchHandler : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    public void OnMouseEnter()
     {
         if (!hasTouched && tween != null)
         {

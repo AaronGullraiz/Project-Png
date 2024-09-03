@@ -9,7 +9,6 @@ public class AquariumWebcamUpdater : EffectManager
         base.HandlePoint(point);
 
         RaycastHit hitInfo;
-
         if (Physics.Raycast(Camera.main.ScreenPointToRay(point), out hitInfo))
         {
             if (hitInfo.collider.tag == "Fish")

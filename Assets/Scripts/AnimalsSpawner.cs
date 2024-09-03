@@ -28,8 +28,19 @@ public class AnimalsSpawner : MonoBehaviour
                 Object animalObj = Resources.Load($"{folderName}/{name}");
                 var an = Instantiate(animalObj, animal.transform) as GameObject;
                 an.name = name;
-                an.GetComponent<SetTexture2D>().SetTextureOnAnimal(texture);
-                spawnedAnimals.Add(an);
+                var setTexture = an.GetComponent<SetTexture>();
+                if (setTexture != null)
+                {
+                    setTexture.SetTextureOnAnimal(texture);
+                }
+                else
+                {
+                    var setTexture2D = an.GetComponentInChildren<SetTexture2D>();
+                    if (setTexture2D != null)
+                    {
+                        setTexture2D.SetTextureOnAnimal(texture);
+                    }
+                }
                 return true;
             }
         }

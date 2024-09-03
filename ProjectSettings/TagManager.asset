@@ -9,6 +9,7 @@ TagManager:
   - Fish
   - Animal
   - Butterfly
+  - Bubble
   layers:
   - Default
   - TransparentFX
