@@ -42,7 +42,7 @@ public class AnimalController : MonoBehaviour
                 agent.SetDestination(waypoints[waypointIndex].position);
             }
         }
-        else if (agent.isStopped && anim.GetBool("Walk"))
+        else if (agent.isStopped && (anim.GetBool("Walk") || ))
         {
             RestartWalk();
         }

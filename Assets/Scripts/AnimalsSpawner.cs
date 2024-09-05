@@ -41,6 +41,7 @@ public class AnimalsSpawner : MonoBehaviour
                         setTexture2D.SetTextureOnAnimal(texture);
                     }
                 }
+                spawnedAnimals.Add(an);
                 return true;
             }
         }

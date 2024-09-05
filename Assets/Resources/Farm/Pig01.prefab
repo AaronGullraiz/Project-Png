@@ -1760,7 +1760,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   waypoints: []
-  anim: {fileID: 0}
+  anim: {fileID: 6478678471008232722}
   speed: 0.5
 --- !u!1 &6478678469226957331
 GameObject:

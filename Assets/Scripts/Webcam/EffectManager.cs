@@ -6,7 +6,9 @@ public class EffectManager : MonoBehaviour {
 
     protected int screenWidth;
     protected int screenHeight;
-    
+
+    protected float delayBeforeProcessing = 3.0f;
+
     // Use this for initialization
     protected void Awake() {
 
@@ -17,7 +19,11 @@ public class EffectManager : MonoBehaviour {
         if(WebcamHandler.instance)
             WebcamHandler.instance.ActivateWebcam();
     }
-	
+    private IEnumerator Start()
+    {
+        yield return new WaitForSeconds(delayBeforeProcessing);
+        delayBeforeProcessing = -1;
+    }
     /// <summary>
     ///  To be called by child classes to go through the list of crosses.
     ///  Input to be mapped to screen size if useScreenSize is true
@@ -27,6 +33,10 @@ public class EffectManager : MonoBehaviour {
     /// <param name="height"></param>
     protected void ProcessInput(bool useScreenSize, int width = 0, int height = 0)
     {
+        if (delayBeforeProcessing > 0)
+        {
+            return;
+        }
         //if (mouseMode)  // use mouse only
         //{
         //    HandlePoint(Input.mousePosition);
@@ -57,5 +67,6 @@ public class EffectManager : MonoBehaviour {
     {
 
     }
+
 
 }

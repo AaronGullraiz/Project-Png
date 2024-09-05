@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class TouchHandler : MonoBehaviour
@@ -14,12 +15,21 @@ public class TouchHandler : MonoBehaviour
     bool hasTouched;
 
     public BubbleHandler parentObj;
+    [DllImport("user32.dll")]
+    static extern bool SetCursorPos(int X, int Y);
+    private int cursorPosX, cursorPosY;
 
     void OnEnable()
     {
         transform.position = transform.parent.position;
         tween = transform.DOMove(new Vector3(transform.parent.position.x+Random.Range(xVarient.x, xVarient.y), yVal, transform.parent.position.z), floatingTime)
             .OnComplete(()=> { tween = null; gameObject.SetActive(false); hasTouched = false; });
+    }
+    private void Start()
+    {
+        // Set cursor position to top-middle of screen
+        cursorPosX = (int)(Screen.width * 2);
+        cursorPosY = (int)(Screen.height * 2);
     }
 
     private void OnDisable()
@@ -41,6 +51,7 @@ public class TouchHandler : MonoBehaviour
             transform.DOShakeScale(0.25f, 1f, 20);
             GetComponent<AudioSource>().Play();
             tween.timeScale = parentObj.touchSpeed;
+            SetCursorPos(cursorPosX, cursorPosY);//Call this to set the mouse position
         }
     }
 }
