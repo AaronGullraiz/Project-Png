@@ -6,7 +6,7 @@ public class DisableAfterDelay : MonoBehaviour
 {
     public float delay;
 
-    private void Start()
+    private void OnEnable()
     {
         Invoke(nameof(DisableObject), delay);
     }
