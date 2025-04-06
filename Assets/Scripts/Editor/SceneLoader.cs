@@ -87,7 +87,16 @@ public class SceneLoader
         }
     }
 
-   [MenuItem("SceneHandler/PlayStop _F5")]
+    [MenuItem("SceneHandler/Open Mushrooms Gameplay Scene %F6")]
+    static void OpenMushroomGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Mushrooms.unity");
+        }
+    }
+
+    [MenuItem("SceneHandler/PlayStop _F5")]
     private static void PlayStopButton()
     {
         if (!EditorApplication.isPlaying)
