@@ -18,6 +18,9 @@ public class MenuManager : MonoBehaviour
     public GameObject toggleObject;
     public string[] scenesList;
 
+    [Header("Mushroom Scene")]
+    public Toggle mushroomModeToggle;
+
     private List<GameObject> togglers;
 
     static List<string> m_HistoryList = new List<string>();
@@ -38,6 +41,13 @@ public class MenuManager : MonoBehaviour
                 togglers.Add(obj);
             }
         }
+
+        mushroomModeToggle.isOn = PlayerPrefs.GetInt("IsMushroomModeDark", 1) == 1;
+    }
+
+    public void MushroomSceneToggleTap(bool val)
+    {
+        PlayerPrefs.SetInt("IsMushroomModeDark", mushroomModeToggle.isOn ? 1 : 0);
     }
 
     public void OpenSettings()
