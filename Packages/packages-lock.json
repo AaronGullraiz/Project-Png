@@ -55,6 +55,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.postprocessing": {
+      "version": "2.3.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.recorder": {
       "version": "2.5.7",
       "depth": 0,
@@ -72,6 +79,16 @@
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.physics": "1.0.0"
       }
+    },
+    "com.unity.render-pipelines.lightweight": {
+      "version": "7.4.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "7.4.1",
+        "com.unity.postprocessing": "2.1.7"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.universal": {
       "version": "11.0.0",
