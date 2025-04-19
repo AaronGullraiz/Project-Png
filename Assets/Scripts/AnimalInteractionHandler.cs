@@ -16,6 +16,10 @@ public UnityEvent clickEvent;
     public MeshRenderer[] mRenderers;
 
     private int cursorPosX, cursorPosY;
+
+
+    bool pauseTouch;
+
     private void Awake()
     {
         // Set cursor position to top-middle of screen
@@ -25,6 +29,8 @@ public UnityEvent clickEvent;
 
     public void OnMouseEnter()
     {
+        if (pauseTouch) return;
+
         clickEvent.Invoke();
 
         //SetCursorPos(0, Screen.height);//Call this to set the mouse position to the bottom-left of screen
@@ -47,5 +53,10 @@ public UnityEvent clickEvent;
         {
             r.material.mainTexture = texture;
         }
+    }
+
+    public void PauseResumeTouch(bool pause)
+    {
+        pauseTouch = pause;
     }
 }

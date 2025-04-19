@@ -62,10 +62,23 @@ public class UIManager : MonoBehaviour
         // Update Camera Curve if it's assigned
         if (cameraCurve != null)
             cameraCurve.SetCameraCurve(cameraCurveSlider.value);
+
+        OnToggleSettings();
     }
 
     private void OnDisable()
     {
         Time.timeScale = 1;
+    }
+
+    bool isSettingsEnabled = false;
+
+    public void OnToggleSettings()
+    {
+        isSettingsEnabled = !isSettingsEnabled;
+        foreach (var item in FindObjectsOfType<AnimalInteractionHandler>())
+        {
+            item.PauseResumeTouch(isSettingsEnabled);
+        }
     }
 }
