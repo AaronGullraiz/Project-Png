@@ -21,7 +21,10 @@ public class UIManager : MonoBehaviour
     {
         float walkSpeed = PlayerPrefs.GetFloat($"{sceneName}:walkSpeed", 0);
         Time.timeScale = 1 + ((walkSpeed * walkSpeed) * 0.1f);
-        if (cameraCurve != null) cameraCurve.SetCameraCurve(PlayerPrefs.GetFloat($"{sceneName}:CurveValue", 0));
+        walkSpeedSlider.value = walkSpeed;
+        float camCurve = PlayerPrefs.GetFloat($"{sceneName}:CurveValue", 0);
+        if (cameraCurve != null) cameraCurve.SetCameraCurve(camCurve);
+        cameraCurveSlider.value = camCurve;
     }
 
     public void UpdateTime(string time)

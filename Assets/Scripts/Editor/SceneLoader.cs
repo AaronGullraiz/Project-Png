@@ -96,6 +96,15 @@ public class SceneLoader
         }
     }
 
+    [MenuItem("SceneHandler/Open Garden Gameplay Scene #F6")]
+    static void OpenGardenGameplayScene()
+    {
+        if (!EditorApplication.isPlaying && EditorApplication.SaveCurrentSceneIfUserWantsTo())
+        {
+            EditorSceneManager.OpenScene(GameplayScenePath + "Garden.unity");
+        }
+    }
+
     [MenuItem("SceneHandler/PlayStop _F5")]
     private static void PlayStopButton()
     {

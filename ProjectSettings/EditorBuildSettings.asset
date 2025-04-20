@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mushrooms.unity
     guid: 7d3e4cac6c3a3c649b7955301dd0d1ea
+  - enabled: 1
+    path: Assets/Scenes/Garden.unity
+    guid: 18d895d6ebc54b043a57a8f1221334d9
   m_configObjects: {}
