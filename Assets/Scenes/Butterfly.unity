@@ -1075,6 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2436e0f4e7fa8c4ea27ec8637bb8ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Butterfly
   cameraCurve: {fileID: 0}
   qrManager: {fileID: 1712435159}
   timerTxt: {fileID: 1331813554}

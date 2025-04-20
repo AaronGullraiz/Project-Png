@@ -4155,6 +4155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2436e0f4e7fa8c4ea27ec8637bb8ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Farm
   cameraCurve: {fileID: 0}
   qrManager: {fileID: 1612982380}
   timerTxt: {fileID: 1568947886}

@@ -294,6 +294,7 @@ MonoBehaviour:
   trapeziumsManager: {fileID: 11210810}
   requestedWidth: 160
   requestedHeight: 120
+  webcamDeviceName: 
 --- !u!4 &11210812
 Transform:
   m_ObjectHideFlags: 0
@@ -1145,6 +1146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2436e0f4e7fa8c4ea27ec8637bb8ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Aquarium
   cameraCurve: {fileID: 0}
   qrManager: {fileID: 1011133423}
   timerTxt: {fileID: 1102143231}

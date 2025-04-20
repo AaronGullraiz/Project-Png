@@ -33,7 +33,6 @@ public class MenuSceneDayNightToggleHandler : MonoBehaviour
 
     public void ToggleClicked(bool isDayNight)
     {
-        Debug.LogError(title+" Toggle : " + isDayNight);
         PrefsHandler.SetDayNightSettings(title,isDayNight);
     }
 

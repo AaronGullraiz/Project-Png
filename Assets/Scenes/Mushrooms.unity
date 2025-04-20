@@ -27648,6 +27648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2436e0f4e7fa8c4ea27ec8637bb8ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Mushrooms
   cameraCurve: {fileID: 120367827}
   qrManager: {fileID: 2128992078}
   timerTxt: {fileID: 1204971884}

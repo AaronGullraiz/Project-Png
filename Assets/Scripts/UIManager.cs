@@ -7,12 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public string sceneName;
     public CameraCurve cameraCurve;
     public QRManager qrManager;
     public Text timerTxt;
 
     [Header("Gameplay Walk speed Settings")]
     public Slider walkSpeedSlider, cameraCurveSlider;
+
+    public SchoolController school;
+
+    private void Start()
+    {
+        float walkSpeed = PlayerPrefs.GetFloat($"{sceneName}:walkSpeed", 0);
+        Time.timeScale = 1 + ((walkSpeed * walkSpeed) * 0.1f);
+        if (cameraCurve != null) cameraCurve.SetCameraCurve(PlayerPrefs.GetFloat($"{sceneName}:CurveValue", 0));
+    }
 
     public void UpdateTime(string time)
     {
@@ -47,7 +57,6 @@ public class UIManager : MonoBehaviour
         qrManager.DeleteAllAnimals();
     }
 
-    public SchoolController school;
     public void SpawnFish(GameObject fish)
     {
         //school.Spawn(fish, transform.position, fish.transform.rotation);
@@ -56,14 +65,17 @@ public class UIManager : MonoBehaviour
 
     public void OnAnimalsSettingsClosed()
     {
+        PlayerPrefs.SetFloat($"{sceneName}:walkSpeed", walkSpeedSlider.value);
         Time.timeScale = 1 + ((walkSpeedSlider.value * walkSpeedSlider.value) * 0.1f);
         //AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
-        
+
         // Update Camera Curve if it's assigned
-        if (cameraCurve != null)
-            cameraCurve.SetCameraCurve(cameraCurveSlider.value);
+        PlayerPrefs.SetFloat($"{sceneName}:CurveValue", cameraCurveSlider.value);
+        if (cameraCurve != null) cameraCurve.SetCameraCurve(cameraCurveSlider.value);
 
         OnToggleSettings();
+
+        PlayerPrefs.Save();
     }
 
     private void OnDisable()

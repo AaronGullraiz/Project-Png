@@ -27,8 +27,8 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        if (illuminationSlider)
-            illuminationSlider.value = PrefsHandler.butterflyIlluminationStrength;
+        if (illuminationSlider) illuminationSlider.value = PrefsHandler.butterflyIlluminationStrength;
+        
         if (toggleObject)
         {
             togglers = new List<GameObject>();
