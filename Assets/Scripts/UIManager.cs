@@ -21,10 +21,10 @@ public class UIManager : MonoBehaviour
     {
         float walkSpeed = PlayerPrefs.GetFloat($"{sceneName}:walkSpeed", 0);
         Time.timeScale = 1 + ((walkSpeed * walkSpeed) * 0.1f);
-        walkSpeedSlider.value = walkSpeed;
+        if(walkSpeedSlider) walkSpeedSlider.value = walkSpeed;
         float camCurve = PlayerPrefs.GetFloat($"{sceneName}:CurveValue", 0);
         if (cameraCurve != null) cameraCurve.SetCameraCurve(camCurve);
-        cameraCurveSlider.value = camCurve;
+        if(cameraCurveSlider) cameraCurveSlider.value = camCurve;
     }
 
     public void UpdateTime(string time)
@@ -68,14 +68,18 @@ public class UIManager : MonoBehaviour
 
     public void OnAnimalsSettingsClosed()
     {
-        PlayerPrefs.SetFloat($"{sceneName}:walkSpeed", walkSpeedSlider.value);
-        Time.timeScale = 1 + ((walkSpeedSlider.value * walkSpeedSlider.value) * 0.1f);
-        //AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
-
-        // Update Camera Curve if it's assigned
-        PlayerPrefs.SetFloat($"{sceneName}:CurveValue", cameraCurveSlider.value);
-        if (cameraCurve != null) cameraCurve.SetCameraCurve(cameraCurveSlider.value);
-
+        if (walkSpeedSlider)
+        {
+            PlayerPrefs.SetFloat($"{sceneName}:walkSpeed", walkSpeedSlider.value);
+            Time.timeScale = 1 + ((walkSpeedSlider.value * walkSpeedSlider.value) * 0.1f);
+            //AnimalsSpawner.Instance.SetAnimalsSpeed(Mathf.RoundToInt(walkSpeedSlider.value));
+        }
+        if (cameraCurveSlider)
+        {
+            // Update Camera Curve if it's assigned
+            PlayerPrefs.SetFloat($"{sceneName}:CurveValue", cameraCurveSlider.value);
+            if (cameraCurve != null) cameraCurve.SetCameraCurve(cameraCurveSlider.value);
+        }
         OnToggleSettings();
 
         PlayerPrefs.Save();
@@ -94,6 +98,11 @@ public class UIManager : MonoBehaviour
         foreach (var item in FindObjectsOfType<AnimalInteractionHandler>())
         {
             item.PauseResumeTouch(isSettingsEnabled);
+        }
+
+        foreach (var item in FindObjectsOfType<BubbleHandler>())
+        {
+            item.OnPauseResumeTouch(isSettingsEnabled);
         }
     }
 }

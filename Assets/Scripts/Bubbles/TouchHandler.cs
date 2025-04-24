@@ -45,7 +45,7 @@ public class TouchHandler : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (!hasTouched && tween != null)
+        if (!GetComponentInParent<BubbleHandler>().pauseTouch && !hasTouched && tween != null)
         {
             hasTouched = true;
             transform.DOShakeScale(0.25f, 1f, 20);

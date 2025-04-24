@@ -12,11 +12,18 @@ public class BubbleHandler : MonoBehaviour
 
     public float touchSpeed;
 
+    public bool pauseTouch;
+
     void Start()
     {
         touchSpeed = PlayerPrefs.GetFloat("BubblesTouchSpeed", 4);
 
         StartCoroutine(SpawnBubbles());
+    }
+
+    public void OnPauseResumeTouch(bool isPause)
+    {
+        pauseTouch = isPause;
     }
 
     IEnumerator SpawnBubbles()
