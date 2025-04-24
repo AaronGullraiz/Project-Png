@@ -25,6 +25,11 @@ public class MenuManager : MonoBehaviour
 
     static List<string> m_HistoryList = new List<string>();
 
+    private void Awake()
+    {
+        Screen.fullScreen = false;
+    }
+
     private void Start()
     {
         if (illuminationSlider) illuminationSlider.value = PrefsHandler.butterflyIlluminationStrength;
