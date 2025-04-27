@@ -4,6 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
+using System;
 
 public class MenuManager : MonoBehaviour
 {
@@ -25,10 +27,62 @@ public class MenuManager : MonoBehaviour
 
     static List<string> m_HistoryList = new List<string>();
 
+    public Toggle fullScreenToggle, screenLockToggle;
+
     private void Awake()
     {
-        Screen.fullScreen = false;
+        Screen.fullScreen = fullScreenToggle.isOn = PlayerPrefs.GetInt("IsFullScreen", 0) == 1;
+        var isLock = PlayerPrefs.GetInt("IsScreenLock", 0) == 1;
+
+        screenLockToggle.isOn = isLock;
+        SetResizable(isLock);
     }
+
+    public void OnToggleFullscreen(bool val)
+    {
+        var isFullScreen = fullScreenToggle.isOn;
+        Screen.fullScreen = isFullScreen;
+        PlayerPrefs.SetInt("IsFullScreen", isFullScreen?1:0);
+    }
+
+    public void OnToggleScreenResolution(bool val)
+    {
+        var isLock = screenLockToggle.isOn;
+        PlayerPrefs.SetInt("IsScreenLock", isLock?1:0);
+        SetResizable(isLock);
+    }
+
+#if UNITY_STANDALONE_WIN
+    [DllImport("user32.dll")]
+    private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+    [DllImport("user32.dll")]
+    private static extern IntPtr GetActiveWindow();
+
+    [DllImport("user32.dll")]
+    private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+    private const int GWL_STYLE = -16;
+    private const int WS_SIZEBOX = 0x00040000; // Resizable border
+    private const int WS_MAXIMIZEBOX = 0x00010000; // Maximize button
+
+    public void SetResizable(bool resizable)
+    {
+        IntPtr windowHandle = GetActiveWindow();
+        int style = GetWindowLong(windowHandle, GWL_STYLE);
+
+        if (resizable)
+        {
+            style |= WS_SIZEBOX | WS_MAXIMIZEBOX;
+        }
+        else
+        {
+            style &= ~(WS_SIZEBOX | WS_MAXIMIZEBOX);
+        }
+
+        SetWindowLong(windowHandle, GWL_STYLE, style);
+    }
+#endif
 
     private void Start()
     {
